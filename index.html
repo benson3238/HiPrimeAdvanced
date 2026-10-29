@@ -1,548 +1,1125 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>崇瀚動力股份有限公司 | CHONEX POWER SYSTEMS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background-color: #07090a;
-        }
-        .font-brand {
-            font-family: 'Montserrat', sans-serif;
-        }
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>崇瀚動力股份有限公司 | CHONEX POWER SYSTEMS</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+
+            background-color: #07090a;
+
+        }
+
+        .font-brand {
+
+            font-family: 'Montserrat', sans-serif;
+
+        }
         /* 滿電電池 O 核心樣式 */
-        .chonex-o {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 26%;
-            background: linear-gradient(145deg, #3a3f44, #16191c);
-            padding: 3px;
-            box-shadow: 0 0 15px rgba(0, 230, 91, 0.25), inset 0 1px 2px rgba(255,255,255,0.3);
-        }
-        .chonex-o-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 20%;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .chonex-o-green {
-            height: 72%;
-            background: linear-gradient(180deg, #34d399 0%, #00e65b 50%, #047857 100%);
-            box-shadow: inset 0 0 8px rgba(255,255,255,0.4);
-        }
-        .chonex-o-divider {
-            height: 4%;
-            background: #ffffff;
-            box-shadow: 0 0 6px #ffffff;
-            z-index: 2;
-        }
-        .chonex-o-red {
-            height: 24%;
-            background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
-        }
-        .led-strip-green {
-            position: relative;
-        }
-        .led-strip-green::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 15%;
-            bottom: 15%;
-            width: 3px;
-            background: linear-gradient(180deg, transparent, #00e65b, #ffffff, #00e65b, transparent);
-            box-shadow: 0 0 12px #00e65b, 0 0 24px #00e65b;
-            border-radius: 4px;
-        }
-        .cabinet-vents {
-            background-image: repeating-linear-gradient(
-                180deg,
-                #0d1013,
-                #0d1013 6px,
-                #1a2026 6px,
-                #1a2026 10px
-            );
-        }
-        .glass-panel {
-            background: rgba(15, 19, 22, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.18; transform: scale(1); }
-            50% { opacity: 0.35; transform: scale(1.06); }
-        }
-        .animate-glow { animation: pulseGlow 7s ease-in-out infinite; }
-    </style>
+        .chonex-o {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 26%;
+
+            background: linear-gradient(145deg, #3a3f44, #16191c);
+
+            padding: 3px;
+
+            box-shadow: 0 0 15px rgba(0, 230, 91, 0.25), inset 0 1px 2px rgba(255,255,255,0.3);
+
+        }
+
+        .chonex-o-inner {
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 20%;
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+        }
+
+        .chonex-o-green {
+
+            height: 72%;
+
+            background: linear-gradient(180deg, #34d399 0%, #00e65b 50%, #047857 100%);
+
+            box-shadow: inset 0 0 8px rgba(255,255,255,0.4);
+
+        }
+
+        .chonex-o-divider {
+
+            height: 4%;
+
+            background: #ffffff;
+
+            box-shadow: 0 0 6px #ffffff;
+
+            z-index: 2;
+
+        }
+
+        .chonex-o-red {
+
+            height: 24%;
+
+            background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
+
+        }
+
+        .led-strip-green {
+
+            position: relative;
+
+        }
+
+        .led-strip-green::before {
+
+            content: '';
+
+            position: absolute;
+
+            left: 0;
+
+            top: 15%;
+
+            bottom: 15%;
+
+            width: 3px;
+
+            background: linear-gradient(180deg, transparent, #00e65b, #ffffff, #00e65b, transparent);
+
+            box-shadow: 0 0 12px #00e65b, 0 0 24px #00e65b;
+
+            border-radius: 4px;
+
+        }
+
+        .cabinet-vents {
+
+            background-image: repeating-linear-gradient(
+
+                180deg,
+
+                #0d1013,
+
+                #0d1013 6px,
+
+                #1a2026 6px,
+
+                #1a2026 10px
+
+            );
+
+        }
+
+        .glass-panel {
+
+            background: rgba(15, 19, 22, 0.85);
+
+            backdrop-filter: blur(16px);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        }
+
+        @keyframes pulseGlow {
+
+            0%, 100% { opacity: 0.18; transform: scale(1); }
+
+            50% { opacity: 0.35; transform: scale(1.06); }
+
+        }
+
+        .animate-glow { animation: pulseGlow 7s ease-in-out infinite; }
+
+    </style>
+
 </head>
+
 <body class="text-zinc-100 antialiased selection:bg-[#00e65b] selection:text-black overflow-x-hidden">
 
-    <!-- 背景環境光暈 -->
-    <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
-    <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
 
-    <!-- 導覽列 -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-zinc-800/80 shadow-2xl">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="flex flex-col group">
-                <div class="flex items-center font-brand font-black text-2xl md:text-3xl tracking-wider text-white">
-                    <span>CH</span>
-                    <span class="chonex-o w-7 h-7 md:w-8 md:h-8 mx-0.5 group-hover:scale-105 transition duration-300">
-                        <span class="chonex-o-inner">
-                            <span class="chonex-o-green"></span>
-                            <span class="chonex-o-divider"></span>
-                            <span class="chonex-o-red"></span>
-                        </span>
-                    </span>
-                    <span>N</span>
-                    <span class="inline-flex flex-col justify-between h-5 md:h-6 w-4 md:w-5 mx-1 py-0.5">
-                        <span class="h-[3px] md:h-1 bg-white w-full rounded-sm"></span>
-                        <span class="h-[3px] md:h-1 bg-white w-full rounded-sm"></span>
-                        <span class="h-[3px] md:h-1 bg-white w-full rounded-sm"></span>
-                    </span>
-                    <span class="relative inline-block bg-clip-text text-transparent bg-gradient-to-tr from-white via-white to-[#00e65b] drop-shadow-[0_0_8px_rgba(0,230,91,0.4)]">X</span>
-                </div>
-                <div class="flex items-center justify-between text-[9px] md:text-[10px] tracking-[0.28em] text-zinc-400 font-brand font-semibold mt-0.5">
-                    <span>POWER SYSTEMS</span>
-                    <span class="text-zinc-300 tracking-widest ml-2 font-sans">崇瀚動力</span>
-                </div>
-            </a>
 
-            <nav class="hidden lg:flex space-x-8 text-sm font-medium text-zinc-300">
-                <a href="#brand-concept" class="hover:text-[#00e65b] transition duration-300">品牌核心</a>
-                <a href="#products" class="hover:text-[#00e65b] transition duration-300">系統陣列</a>
-                <a href="#applications" class="hover:text-[#00e65b] transition duration-300">應用場景</a>
-                <a href="#contact" class="hover:text-[#00e65b] transition duration-300">聯絡我們</a>
-            </nav>
+    <!-- 背景環境光暈 -->
 
-            <div class="hidden md:flex items-center space-x-6">
-                <div class="text-right hidden xl:block border-r border-zinc-800 pr-5">
-                    <p class="text-[10px] font-brand tracking-[0.25em] text-zinc-400 uppercase">Power • People • Progress</p>
-                    <p class="text-[10px] font-brand tracking-[0.15em] text-[#00e65b] uppercase">Driven By Engineering</p>
-                </div>
-                <a href="#contact" class="px-6 py-2.5 text-sm font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
-                    索取規格書
-                </a>
-            </div>
-        </div>
-    </header>
+    <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
 
-    <!-- 視覺主視覺 (Hero Section) -->
-    <section class="relative pt-40 pb-20 md:pt-48 md:pb-28 z-10">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-7">
-                <div class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-brand font-semibold tracking-[0.2em] uppercase bg-zinc-900 text-[#00e65b] border border-[#00e65b]/30 mb-6 shadow-[0_0_15px_rgba(0,230,91,0.1)]">
-                    <span class="w-2 h-2 rounded-full bg-[#00e65b] mr-2.5 animate-ping"></span>
-                    Powering A Cleaner Stronger Tomorrow
-                </div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-6 leading-[1.15]">
-                    以電池能量為核心 <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00e65b] to-emerald-400">滿電驅動</span> 更強大的未來
-                </h1>
-                <p class="text-lg text-zinc-400 mb-8 leading-relaxed max-w-2xl">
-                    崇瀚動力（CHONEX Power Systems）將「<span class="text-white font-semibold">滿電 / 穩定 / 可靠</span>」的品牌精神融入能源系統領域。專注於高效率氫燃料電池發電、航太無人機動力模組與分散式 BESS 微電網控制。
-                </p>
-                <div class="flex flex-wrap gap-4 items-center">
-                    <a href="#products" class="px-8 py-4 font-bold text-black bg-[#00e65b] hover:bg-emerald-400 rounded-xl transition shadow-[0_0_25px_rgba(0,230,91,0.35)] flex items-center">
-                        探索動力系統 <i class="fa-solid fa-bolt ml-2"></i>
-                    </a>
-                    <a href="#brand-concept" class="px-8 py-4 font-semibold text-zinc-200 bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 hover:border-[#00e65b]/50 rounded-xl transition">
-                        了解 CHONEX 核心精神
-                    </a>
-                </div>
-            </div>
-            
-            <!-- 右側：工業級發電與儲能一體化機櫃視覺擬真面板 -->
-            <div class="lg:col-span-5 relative">
-                <div class="glass-panel p-6 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden led-strip-green">
-                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-zinc-800/80">
-                        <div>
-                            <span class="text-[10px] font-brand tracking-[0.25em] text-[#00e65b] uppercase block">System Status</span>
-                            <h3 class="text-lg font-bold text-white">CHONEX 微電網核心</h3>
-                        </div>
-                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/30">
-                            ● 100% 滿電輸出
-                        </span>
-                    </div>
+    <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
 
-                    <div class="relative rounded-2xl overflow-hidden h-64 mb-5 border border-zinc-700 bg-[#0d1013] flex shadow-inner">
-                        <div class="w-1/5 h-full cabinet-vents border-r border-zinc-800"></div>
-                        <div class="w-4/5 h-full bg-gradient-to-br from-zinc-900 via-[#0c0f12] to-black p-6 flex flex-col justify-between relative">
-                            <div class="flex justify-between text-zinc-700 text-[10px]">
-                                <i class="fa-solid fa-circle-dot"></i>
-                                <span class="font-brand text-[9px] tracking-widest text-zinc-500">IP65 ENCLOSURE</span>
-                                <i class="fa-solid fa-circle-dot"></i>
+
+
+    <!-- 導覽列 -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-zinc-800/80 shadow-2xl">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="#" class="flex flex-col group">
+
+                <div class="flex items-center font-brand font-black text-2xl md:text-3xl tracking-wider text-white">
+
+                    <span>CH</span>
+
+                    <span class="chonex-o w-7 h-7 md:w-8 md:h-8 mx-0.5 group-hover:scale-105 transition duration-300">
+
+                        <span class="chonex-o-inner">
+
+                            <span class="chonex-o-green"></span>
+
+                            <span class="chonex-o-divider"></span>
+
+                            <span class="chonex-o-red"></span>
+
+                        </span>
+
+                    </span>
+
+                    <span>N</span>
+
+                    <span class="inline-flex flex-col justify-between h-5 md:h-6 w-4 md:w-5 mx-1 py-0.5">
+
+                        <span class="h-[3px] md:h-1 bg-white w-full rounded-sm"></span>
+
+                        <span class="h-[3px] md:h-1 bg-white w-full rounded-sm"></span>
+
+                        <span class="h-[3px] md:h-1 bg-white w-full rounded-sm"></span>
+
+                    </span>
+
+                    <span class="relative inline-block bg-clip-text text-transparent bg-gradient-to-tr from-white via-white to-[#00e65b] drop-shadow-[0_0_8px_rgba(0,230,91,0.4)]">X</span>
+
+                </div>
+
+                <div class="flex items-center justify-between text-[9px] md:text-[10px] tracking-[0.28em] text-zinc-400 font-brand font-semibold mt-0.5">
+
+                    <span>POWER SYSTEMS</span>
+
+                    <span class="text-zinc-300 tracking-widest ml-2 font-sans">崇瀚動力</span>
+
+                </div>
+
+            </a>
+
+
+
+            <nav class="hidden lg:flex space-x-8 text-sm font-medium text-zinc-300">
+
+                <a href="#brand-concept" class="hover:text-[#00e65b] transition duration-300">品牌核心</a>
+
+                <a href="#products" class="hover:text-[#00e65b] transition duration-300">系統陣列</a>
+
+                <a href="#applications" class="hover:text-[#00e65b] transition duration-300">應用場景</a>
+                <a href="#system-gallery" class="hover:text-[#00e65b] transition duration-300">系統展示</a>
+
+                <a href="#contact" class="hover:text-[#00e65b] transition duration-300">聯絡我們</a>
+
+            </nav>
+
+
+
+            <div class="hidden md:flex items-center space-x-6">
+
+                <div class="text-right hidden xl:block border-r border-zinc-800 pr-5">
+
+                    <p class="text-[10px] font-brand tracking-[0.25em] text-zinc-400 uppercase">Power • People • Progress</p>
+
+                    <p class="text-[10px] font-brand tracking-[0.15em] text-[#00e65b] uppercase">Driven By Engineering</p>
+
+                </div>
+
+                <a href="#contact" class="px-6 py-2.5 text-sm font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
+
+                    索取規格書
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- 視覺主視覺 (Hero Section) -->
+
+    <section class="relative pt-40 pb-20 md:pt-48 md:pb-28 z-10">
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+
+            <div class="lg:col-span-7">
+
+                <div class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-brand font-semibold tracking-[0.2em] uppercase bg-zinc-900 text-[#00e65b] border border-[#00e65b]/30 mb-6 shadow-[0_0_15px_rgba(0,230,91,0.1)]">
+
+                    <span class="w-2 h-2 rounded-full bg-[#00e65b] mr-2.5 animate-ping"></span>
+
+                    Powering A Cleaner Stronger Tomorrow
+
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-6 leading-[1.15]">
+
+                    以電池能量為核心 <br>
+
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00e65b] to-emerald-400">滿電驅動</span> 更強大的未來
+
+                </h1>
+
+                <p class="text-lg text-zinc-400 mb-8 leading-relaxed max-w-2xl">
+
+                    崇瀚動力（CHONEX Power Systems）將「<span class="text-white font-semibold">滿電 / 穩定 / 可靠</span>」的品牌精神融入能源系統領域。專注於高效率氫燃料電池發電、航太無人機動力模組與分散式 BESS 微電網控制。
+
+                </p>
+
+                <div class="flex flex-wrap gap-4 items-center">
+
+                    <a href="#products" class="px-8 py-4 font-bold text-black bg-[#00e65b] hover:bg-emerald-400 rounded-xl transition shadow-[0_0_25px_rgba(0,230,91,0.35)] flex items-center">
+
+                        探索動力系統 <i class="fa-solid fa-bolt ml-2"></i>
+
+                    </a>
+
+                    <a href="#brand-concept" class="px-8 py-4 font-semibold text-zinc-200 bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 hover:border-[#00e65b]/50 rounded-xl transition">
+
+                        了解 CHONEX 核心精神
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 右側：工業級發電與儲能一體化機櫃視覺擬真面板 -->
+
+            <div class="lg:col-span-5 relative">
+
+                <div class="glass-panel p-6 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden led-strip-green">
+
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-zinc-800/80">
+
+                        <div>
+
+                            <span class="text-[10px] font-brand tracking-[0.25em] text-[#00e65b] uppercase block">System Status</span>
+
+                            <h3 class="text-lg font-bold text-white">CHONEX 微電網核心</h3>
+
+                        </div>
+
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/30">
+
+                            ● 100% 滿電輸出
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="relative rounded-2xl overflow-hidden h-64 mb-5 border border-zinc-700 bg-[#0d1013] flex shadow-inner">
+
+                        <div class="w-1/5 h-full cabinet-vents border-r border-zinc-800"></div>
+
+                        <div class="w-4/5 h-full bg-gradient-to-br from-zinc-900 via-[#0c0f12] to-black p-6 flex flex-col justify-between relative">
+
+                            <div class="flex justify-between text-zinc-700 text-[10px]">
+
+                                <i class="fa-solid fa-circle-dot"></i>
+
+                                <span class="font-brand text-[9px] tracking-widest text-zinc-500">IP65 ENCLOSURE</span>
+
+                                <i class="fa-solid fa-circle-dot"></i>
+
+                            </div>
+
+                            <div class="my-auto pl-2 border-l-2 border-zinc-800">
+
+                                <div class="flex items-center font-brand font-black text-2xl tracking-wider text-white">
+
+                                    <span>CH</span>
+
+                                    <span class="chonex-o w-6 h-6 mx-0.5">
+
+                                        <span class="chonex-o-inner">
+
+                                            <span class="chonex-o-green"></span>
+
+                                            <span class="chonex-o-divider"></span>
+
+                                            <span class="chonex-o-red"></span>
+
+                                        </span>
+
+                                    </span>
+
+                                    <span>N</span>
+
+                                    <span class="inline-flex flex-col justify-between h-4 w-3.5 mx-1 py-0.5">
+
+                                        <span class="h-[2.5px] bg-white w-full"></span>
+
+                                        <span class="h-[2.5px] bg-white w-full"></span>
+
+                                        <span class="h-[2.5px] bg-white w-full"></span>
+
+                                    </span>
+
+                                    <span class="text-[#00e65b] drop-shadow-[0_0_8px_#00e65b]">X</span>
+
+                                </div>
+
+                                <p class="text-[8px] font-brand tracking-[0.28em] text-zinc-400 mt-1">POWER SYSTEMS</p>
+
+                                <p class="text-[10px] text-zinc-300 tracking-widest font-semibold">工業級發電與儲能一體化機櫃</p>
+
+                            </div>
+
+                            <div class="absolute right-5 top-6 bottom-6 w-1.5 bg-gradient-to-b from-transparent via-[#00e65b] to-transparent rounded-full shadow-[0_0_15px_#00e65b]"></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="space-y-2">
+
+                        <div class="flex justify-between text-xs">
+
+                            <span class="text-zinc-400">高效能滿電輸出 (Energy Output)</span>
+
+                            <span class="text-[#00e65b] font-bold">OPTIMAL</span>
+
+                        </div>
+
+                        <div class="w-full h-2.5 bg-zinc-900 rounded-full overflow-hidden p-0.5 border border-zinc-800">
+
+                            <div class="h-full w-full bg-gradient-to-r from-[#00e65b] to-emerald-400 rounded-full shadow-[0_0_10px_#00e65b]"></div>
+
+                        </div>
+
+                        <div class="flex justify-between text-xs pt-1">
+
+                            <span class="text-zinc-400">安全與可靠能源基座 (Safety Foundation)</span>
+
+                            <span class="text-red-500 font-bold">PROTECTED</span>
+
+                        </div>
+
+                        <div class="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
+
+                            <div class="h-full w-full bg-gradient-to-r from-red-600 to-red-500 rounded-full"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 關鍵數據與三大產業價值 -->
+
+    <section class="border-y border-zinc-800/80 bg-zinc-950/60 backdrop-blur-md relative z-10">
+
+        <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-zinc-800/80">
+
+            <div class="pt-4 md:pt-0 md:px-6 first:pl-0">
+
+                <div class="flex items-baseline space-x-3 mb-2">
+
+                    <span class="text-2xl font-brand font-black text-[#00e65b]">01</span>
+
+                    <h3 class="text-lg font-bold text-white">品牌形象 | 專業可靠</h3>
+
+                </div>
+
+                <p class="text-sm text-zinc-400 leading-relaxed">以滿電電池為核心識別，結合精密嵌入式控制技術，展現專業、可靠且具國際感的能源品牌形象。</p>
+
+            </div>
+
+            <div class="pt-4 md:pt-0 md:px-6">
+
+                <div class="flex items-baseline space-x-3 mb-2">
+
+                    <span class="text-2xl font-brand font-black text-[#00e65b]">02</span>
+
+                    <h3 class="text-lg font-bold text-white">應用延伸 | 高端質感</h3>
+
+                </div>
+
+                <p class="text-sm text-zinc-400 leading-relaxed">從 10kW-80kW 工業微電網機櫃到航太無人機動力模組，保持一致的高端工業設計與極低諧波失真 (&lt;5% THD)。</p>
+
+            </div>
+
+            <div class="pt-4 md:pt-0 md:px-6">
+
+                <div class="flex items-baseline space-x-3 mb-2">
+
+                    <span class="text-2xl font-brand font-black text-[#00e65b]">03</span>
+
+                    <h3 class="text-lg font-bold text-white">產業價值 | 滿電驅動</h3>
+
+                </div>
+
+                <p class="text-sm text-zinc-400 leading-relaxed">滿電驅動、持續輸出，透過零碳排氫能與 BESS 智慧儲能整合，創造更潔淨、更強大的未來。</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CHONEX 品牌設計概念解析 -->
+
+    <section id="brand-concept" class="py-24 relative z-10">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+
+                <div>
+
+                    <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Core Philosophy</span>
+
+                    <h2 class="text-3xl md:text-4xl font-black">以電池能量為核心的設計語言</h2>
+
+                </div>
+
+                <p class="text-zinc-400 text-sm font-brand tracking-widest uppercase mt-4 md:mt-0">
+
+                    Driven by Engineering • Built for a Brighter, Cleaner Tomorrow
+
+                </p>
+
+            </div>
+
+
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col sm:flex-row items-center sm:items-start gap-8 group">
+
+                    <div class="chonex-o w-28 h-28 shrink-0 group-hover:scale-105 transition duration-500 shadow-[0_0_30px_rgba(0,230,91,0.2)]">
+
+                        <div class="chonex-o-inner">
+
+                            <div class="chonex-o-green"></div>
+
+                            <div class="chonex-o-divider"></div>
+
+                            <div class="chonex-o-red"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div class="inline-block px-3 py-1 rounded-md bg-zinc-900 border border-zinc-700 text-xs font-brand text-zinc-300 mb-3">
+
+                            CORE ELEMENT 01
+
+                        </div>
+
+                        <h3 class="text-2xl font-black text-white mb-1">O = 電池能量核心</h3>
+
+                        <p class="text-[#00e65b] font-semibold text-sm mb-4">滿電狀態 ‧ 穩定供能</p>
+
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+
+                            以電池能量為設計核心，<span class="text-[#00e65b] font-medium">上層綠色</span>象徵滿電狀態與高效能轉換；<span class="text-red-400 font-medium">下層紅色</span>作為穩固基座，傳達崇瀚動力在燃料電池與微電網系統中「穩定、安全與可靠」的能源基礎。
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col sm:flex-row items-center sm:items-start gap-8 group">
+
+                    <div class="w-28 h-28 shrink-0 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:scale-105 transition duration-500 shadow-[0_0_30px_rgba(0,230,91,0.15)]">
+
+                        <span class="font-brand font-black text-7xl bg-clip-text text-transparent bg-gradient-to-tr from-zinc-400 via-white to-[#00e65b] drop-shadow-[0_0_15px_rgba(0,230,91,0.5)]">X</span>
+
+                    </div>
+
+                    <div>
+
+                        <div class="inline-block px-3 py-1 rounded-md bg-zinc-900 border border-zinc-700 text-xs font-brand text-zinc-300 mb-3">
+
+                            CORE ELEMENT 02
+
+                        </div>
+
+                        <h3 class="text-2xl font-black text-white mb-1">X = 能量輸出</h3>
+
+                        <p class="text-[#00e65b] font-semibold text-sm mb-4">轉換 ‧ 輸出 ‧ 驅動</p>
+
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+
+                            X 代表能量的高效轉換與精準輸出，象徵 CHONEX 透過尖端電力電子與嵌入式控制技術，將氫能與儲能系統轉化為更高效、更潔淨的動力，持續驅動產業未來。
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 產品與系統陣列 -->
+
+    <section id="products" class="py-24 bg-zinc-950/50 border-t border-zinc-900 relative z-10">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+
+                <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Power Systems</span>
+
+                <h2 class="text-3xl md:text-4xl font-black mb-4">主力能源與動力系統陣列</h2>
+
+                <p class="text-zinc-400">從大型工業級微電網機櫃到輕量化航太氫動力模組，提供全方位零碳排硬體方案。</p>
+
+            </div>
+
+
+
+            <div class="space-y-16">
+
+                <!-- 產品 1: 戶外型氫能發電與微電網機櫃 (精準發電機硬體視覺) -->
+
+                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
+
+                    <div class="relative min-h-[320px] lg:min-h-[530px] overflow-hidden bg-[#0b0e11] border-r border-zinc-800">
+                        <img src="assets/hydrogen-microgrid-cabinet.webp" alt="戶外型氫能發電與微電網機櫃，展示機櫃外觀及內部設備" class="absolute inset-0 h-full w-full object-cover opacity-90" loading="lazy" decoding="async">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/35"></div>
+                        <div class="relative z-10 min-h-[320px] lg:min-h-[530px] p-6 flex flex-col justify-between">
+                            <div class="flex justify-between items-center gap-4 text-[10px] md:text-xs font-brand text-zinc-200">
+                                <span class="text-[#00e65b]"><i class="fa-solid fa-bolt mr-1"></i> HYDROGEN GENERATOR UNIT</span>
+                                <span class="shrink-0">MODEL: CHX-80KW</span>
                             </div>
-                            <div class="my-auto pl-2 border-l-2 border-zinc-800">
-                                <div class="flex items-center font-brand font-black text-2xl tracking-wider text-white">
-                                    <span>CH</span>
-                                    <span class="chonex-o w-6 h-6 mx-0.5">
-                                        <span class="chonex-o-inner">
-                                            <span class="chonex-o-green"></span>
-                                            <span class="chonex-o-divider"></span>
-                                            <span class="chonex-o-red"></span>
-                                        </span>
-                                    </span>
-                                    <span>N</span>
-                                    <span class="inline-flex flex-col justify-between h-4 w-3.5 mx-1 py-0.5">
-                                        <span class="h-[2.5px] bg-white w-full"></span>
-                                        <span class="h-[2.5px] bg-white w-full"></span>
-                                        <span class="h-[2.5px] bg-white w-full"></span>
-                                    </span>
-                                    <span class="text-[#00e65b] drop-shadow-[0_0_8px_#00e65b]">X</span>
-                                </div>
-                                <p class="text-[8px] font-brand tracking-[0.28em] text-zinc-400 mt-1">POWER SYSTEMS</p>
-                                <p class="text-[10px] text-zinc-300 tracking-widest font-semibold">工業級發電與儲能一體化機櫃</p>
+                            <div class="mt-auto pt-10">
+                                <span class="inline-flex px-3 py-1 rounded-full bg-black/60 border border-[#00e65b]/50 text-[#00e65b] text-[10px] font-brand tracking-widest mb-3">STATIONARY POWER</span>
+                                <h4 class="text-white font-bold text-xl md:text-2xl">80kW 戶外型氫能發電機櫃</h4>
+                                <p class="text-sm text-zinc-200 mt-2">PEMFC 燃料電池 / 智慧 DC-DC / 微電網整合</p>
                             </div>
-                            <div class="absolute right-5 top-6 bottom-6 w-1.5 bg-gradient-to-b from-transparent via-[#00e65b] to-transparent rounded-full shadow-[0_0_15px_#00e65b]"></div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-zinc-400">高效能滿電輸出 (Energy Output)</span>
-                            <span class="text-[#00e65b] font-bold">OPTIMAL</span>
-                        </div>
-                        <div class="w-full h-2.5 bg-zinc-900 rounded-full overflow-hidden p-0.5 border border-zinc-800">
-                            <div class="h-full w-full bg-gradient-to-r from-[#00e65b] to-emerald-400 rounded-full shadow-[0_0_10px_#00e65b]"></div>
-                        </div>
-                        <div class="flex justify-between text-xs pt-1">
-                            <span class="text-zinc-400">安全與可靠能源基座 (Safety Foundation)</span>
-                            <span class="text-red-500 font-bold">PROTECTED</span>
-                        </div>
-                        <div class="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
-                            <div class="h-full w-full bg-gradient-to-r from-red-600 to-red-500 rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 關鍵數據與三大產業價值 -->
-    <section class="border-y border-zinc-800/80 bg-zinc-950/60 backdrop-blur-md relative z-10">
-        <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-zinc-800/80">
-            <div class="pt-4 md:pt-0 md:px-6 first:pl-0">
-                <div class="flex items-baseline space-x-3 mb-2">
-                    <span class="text-2xl font-brand font-black text-[#00e65b]">01</span>
-                    <h3 class="text-lg font-bold text-white">品牌形象 | 專業可靠</h3>
-                </div>
-                <p class="text-sm text-zinc-400 leading-relaxed">以滿電電池為核心識別，結合精密嵌入式控制技術，展現專業、可靠且具國際感的能源品牌形象。</p>
-            </div>
-            <div class="pt-4 md:pt-0 md:px-6">
-                <div class="flex items-baseline space-x-3 mb-2">
-                    <span class="text-2xl font-brand font-black text-[#00e65b]">02</span>
-                    <h3 class="text-lg font-bold text-white">應用延伸 | 高端質感</h3>
-                </div>
-                <p class="text-sm text-zinc-400 leading-relaxed">從 10kW-80kW 工業微電網機櫃到航太無人機動力模組，保持一致的高端工業設計與極低諧波失真 (&lt;5% THD)。</p>
-            </div>
-            <div class="pt-4 md:pt-0 md:px-6">
-                <div class="flex items-baseline space-x-3 mb-2">
-                    <span class="text-2xl font-brand font-black text-[#00e65b]">03</span>
-                    <h3 class="text-lg font-bold text-white">產業價值 | 滿電驅動</h3>
-                </div>
-                <p class="text-sm text-zinc-400 leading-relaxed">滿電驅動、持續輸出，透過零碳排氫能與 BESS 智慧儲能整合，創造更潔淨、更強大的未來。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CHONEX 品牌設計概念解析 -->
-    <section id="brand-concept" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                <div>
-                    <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Core Philosophy</span>
-                    <h2 class="text-3xl md:text-4xl font-black">以電池能量為核心的設計語言</h2>
-                </div>
-                <p class="text-zinc-400 text-sm font-brand tracking-widest uppercase mt-4 md:mt-0">
-                    Driven by Engineering • Built for a Brighter, Cleaner Tomorrow
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col sm:flex-row items-center sm:items-start gap-8 group">
-                    <div class="chonex-o w-28 h-28 shrink-0 group-hover:scale-105 transition duration-500 shadow-[0_0_30px_rgba(0,230,91,0.2)]">
-                        <div class="chonex-o-inner">
-                            <div class="chonex-o-green"></div>
-                            <div class="chonex-o-divider"></div>
-                            <div class="chonex-o-red"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inline-block px-3 py-1 rounded-md bg-zinc-900 border border-zinc-700 text-xs font-brand text-zinc-300 mb-3">
-                            CORE ELEMENT 01
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-1">O = 電池能量核心</h3>
-                        <p class="text-[#00e65b] font-semibold text-sm mb-4">滿電狀態 ‧ 穩定供能</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed">
-                            以電池能量為設計核心，<span class="text-[#00e65b] font-medium">上層綠色</span>象徵滿電狀態與高效能轉換；<span class="text-red-400 font-medium">下層紅色</span>作為穩固基座，傳達崇瀚動力在燃料電池與微電網系統中「穩定、安全與可靠」的能源基礎。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col sm:flex-row items-center sm:items-start gap-8 group">
-                    <div class="w-28 h-28 shrink-0 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:scale-105 transition duration-500 shadow-[0_0_30px_rgba(0,230,91,0.15)]">
-                        <span class="font-brand font-black text-7xl bg-clip-text text-transparent bg-gradient-to-tr from-zinc-400 via-white to-[#00e65b] drop-shadow-[0_0_15px_rgba(0,230,91,0.5)]">X</span>
-                    </div>
-                    <div>
-                        <div class="inline-block px-3 py-1 rounded-md bg-zinc-900 border border-zinc-700 text-xs font-brand text-zinc-300 mb-3">
-                            CORE ELEMENT 02
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-1">X = 能量輸出</h3>
-                        <p class="text-[#00e65b] font-semibold text-sm mb-4">轉換 ‧ 輸出 ‧ 驅動</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed">
-                            X 代表能量的高效轉換與精準輸出，象徵 CHONEX 透過尖端電力電子與嵌入式控制技術，將氫能與儲能系統轉化為更高效、更潔淨的動力，持續驅動產業未來。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 產品與系統陣列 -->
-    <section id="products" class="py-24 bg-zinc-950/50 border-t border-zinc-900 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Power Systems</span>
-                <h2 class="text-3xl md:text-4xl font-black mb-4">主力能源與動力系統陣列</h2>
-                <p class="text-zinc-400">從大型工業級微電網機櫃到輕量化航太氫動力模組，提供全方位零碳排硬體方案。</p>
-            </div>
-
-            <div class="space-y-16">
-                <!-- 產品 1: 戶外型氫能發電與微電網機櫃 (精準發電機硬體視覺) -->
-                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
-                    <div class="relative h-72 lg:h-auto bg-[#0b0e11] p-8 flex flex-col justify-between border-r border-zinc-800">
-                        <div class="flex justify-between items-center text-xs font-brand text-zinc-400">
-                            <span class="text-[#00e65b]"><i class="fa-solid fa-bolt mr-1"></i> HYDROGEN GENERATOR UNIT</span>
-                            <span>MODEL: CHX-80KW</span>
-                        </div>
-                        <div class="my-auto py-8 text-center">
-                            <div class="inline-block p-6 rounded-2xl bg-zinc-900/90 border border-zinc-700 shadow-2xl mb-4">
-                                <i class="fa-solid fa-server text-5xl text-[#00e65b] drop-shadow-[0_0_15px_rgba(0,230,91,0.5)]"></i>
+                            <div class="flex justify-between items-center gap-4 text-[10px] font-brand text-zinc-300 border-t border-white/20 pt-3 mt-5">
+                                <span>INDUSTRIAL SYSTEM</span>
+                                <span class="text-[#00e65b]">● BESS READY</span>
                             </div>
-                            <h4 class="text-white font-bold text-lg">80kW 戶外防爆發電機櫃</h4>
-                            <p class="text-xs text-zinc-400 mt-1">PEMFC 燃料電池 / 智慧 DC-DC / THD &lt; 5%</p>
-                        </div>
-                        <div class="flex justify-between items-center text-[10px] font-brand text-zinc-500 border-t border-zinc-800/80 pt-3">
-                            <span>STATUS: ACTIVE</span>
-                            <span class="text-[#00e65b]">● BESS READY</span>
                         </div>
                     </div>
+
                     <div class="p-8 md:p-12 flex flex-col justify-center">
-                        <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Stationary Power</div>
-                        <h3 class="text-2xl md:text-3xl font-black mb-4">戶外型氫能發電與微電網機櫃</h3>
-                        <p class="text-zinc-400 mb-6 leading-relaxed">專為化學廠區、資料中心與關鍵設施設計的工業級燃料電池系統 (PEMFC / SOFC)。具備極佳的負載反應速度，無縫整合 BESS 儲能單元，打造滿電可靠的分散式微電網。</p>
-                        <ul class="space-y-3 text-sm text-zinc-300 font-medium mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> 智慧 DC-DC 轉換與高規交流輸出 (THD &lt; 5%)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> 工業級 HMI 觸控介面與 EMS 遠端數據監控</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-3"></i> 多重氣體偵測與硬體安全連鎖保護基座</li>
-                        </ul>
-                        <div>
-                            <a href="#contact" class="inline-flex items-center text-sm font-bold text-[#00e65b] hover:text-emerald-300">
-                                索取機櫃規格與整合方案 <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- 產品 2: 重載多軸無人機氫動力模組 (重現工程剖面、燃料電池堆與高壓氣瓶佈局) -->
-                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
-                    <div class="p-8 md:p-12 flex flex-col justify-center lg:order-1 order-2">
-                        <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Aerospace &amp; Mobility</div>
-                        <h3 class="text-2xl md:text-3xl font-black mb-4">重載多軸無人機氫動力模組</h3>
-                        <p class="text-zinc-400 mb-6 leading-relaxed">針對大型農噴、長航時巡檢與物流載貨等工業級多軸無人機開發的高能量密度系統。內部緊密整合輕量化碳纖維高壓氣瓶與高效氫燃料電池堆，突破傳統鋰電池極限，實現大酬載與長航時作業。</p>
-                        <ul class="space-y-3 text-sm text-zinc-300 font-medium mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> [01] 模組化氫燃料電池堆 (Fuel Cell Stack)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> [02] 300BAR 碳纖維高壓儲氫瓶與自動減壓閥</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> [03] CAN Bus (J1939) 底層通訊與即時無線遙測</li>
-                        </ul>
-                        <div>
-                            <a href="#contact" class="inline-flex items-center text-sm font-bold text-[#00e65b] hover:text-emerald-300">
-                                洽詢無人機動力客製化 <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
+                        <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Stationary Power</div>
 
-                    <div class="relative h-80 lg:h-auto overflow-hidden bg-[#05080b] p-8 flex flex-col justify-between border-l border-zinc-800 lg:order-2 order-1">
-                        <div class="flex justify-between items-center text-xs font-brand text-[#00e65b]">
-                            <span><i class="fa-solid fa-jet-fighter-up mr-1"></i> HEAVY-DUTY UAV PROPULSION</span>
-                            <span>X-RAY SCHEMATIC</span>
-                        </div>
-                        <div class="my-auto py-6 text-center">
-                            <div class="inline-block p-6 rounded-2xl bg-black/90 border border-[#00e65b]/40 shadow-[0_0_30px_rgba(0,230,91,0.2)] mb-4">
-                                <i class="fa-solid fa-helicopter text-5xl text-[#00e65b] drop-shadow-[0_0_15px_#00e65b]"></i>
+                        <h3 class="text-2xl md:text-3xl font-black mb-4">戶外型氫能發電與微電網機櫃</h3>
+
+                        <p class="text-zinc-400 mb-6 leading-relaxed">專為化學廠區、資料中心與關鍵設施設計的工業級燃料電池系統 (PEMFC / SOFC)。具備極佳的負載反應速度，無縫整合 BESS 儲能單元，打造滿電可靠的分散式微電網。</p>
+
+                        <ul class="space-y-3 text-sm text-zinc-300 font-medium mb-8">
+
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> 智慧 DC-DC 轉換與高規交流輸出 (THD &lt; 5%)</li>
+
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> 工業級 HMI 觸控介面與 EMS 遠端數據監控</li>
+
+                            <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-3"></i> 多重氣體偵測與硬體安全連鎖保護基座</li>
+
+                        </ul>
+
+                        <div>
+
+                            <a href="#contact" class="inline-flex items-center text-sm font-bold text-[#00e65b] hover:text-emerald-300">
+
+                                索取機櫃規格與整合方案 <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 產品 2: 大型固定翼無人機氫動力模組（飛行外觀與機身內部剖面示意） -->
+
+                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
+
+                    <div class="p-8 md:p-12 flex flex-col justify-center lg:order-1 order-2">
+
+                        <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Aerospace &amp; Mobility</div>
+
+                        <h3 class="text-2xl md:text-3xl font-black mb-4">大型固定翼無人機氫動力模組</h3>
+
+                        <p class="text-zinc-400 mb-6 leading-relaxed">針對長航時巡檢、航測與物流等工業級固定翼無人機任務，整合輕量化碳纖維高壓儲氫瓶與氫燃料電池堆，提供長航時飛行所需的氫動力系統整合方案。</p>
+
+                        <ul class="space-y-3 text-sm text-zinc-300 font-medium mb-8">
+
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> [01] 模組化氫燃料電池堆 (Fuel Cell Stack)</li>
+
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> [02] 300BAR 碳纖維高壓儲氫瓶與自動減壓閥</li>
+
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> [03] CAN Bus (J1939) 底層通訊與即時無線遙測</li>
+
+                        </ul>
+
+                        <div>
+
+                            <a href="#contact" class="inline-flex items-center text-sm font-bold text-[#00e65b] hover:text-emerald-300">
+
+                                洽詢無人機動力客製化 <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="relative overflow-hidden bg-[#05080b] border-l border-zinc-800 lg:order-2 order-1">
+                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#00e65b]/10 via-transparent to-transparent"></div>
+                        <div class="relative p-4 md:p-5">
+                            <div class="flex justify-between items-center gap-3 text-[10px] md:text-xs font-brand text-[#00e65b] mb-3">
+                                <span><i class="fa-solid fa-plane mr-1"></i> FIXED-WING UAV PROPULSION</span>
+                                <span class="shrink-0">FLIGHT + CUTAWAY</span>
                             </div>
-                            <h4 class="text-white font-bold text-base">重載多軸無人機內部架構解析</h4>
-                            <p class="text-xs text-[#00e65b] font-brand mt-1">[01] 燃料電池堆 + [02] 高壓碳纖維儲氫瓶</p>
-                        </div>
-                        <div class="flex justify-between items-center text-[10px] font-brand text-zinc-400 border-t border-zinc-800/80 pt-3">
-                            <span>PAYLOAD CAPACITY: HIGH</span>
-                            <span class="text-[#00e65b]">● 300BAR INTEGRATED</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 應用場景與產業 -->
-    <section id="applications" class="py-24 border-t border-zinc-900 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Energy In Motion</span>
-                <h2 class="text-3xl md:text-4xl font-black mb-4">賦能多元產業的綠能心臟</h2>
-                <p class="text-zinc-400">從企業識別到產品實戰應用，提供一致的高端品質與高可靠度電力支援。</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
-                    <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-4 border border-cyan-500/20">
-                        <i class="fa-solid fa-server"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-2">資料中心備援</h4>
-                        <p class="text-xs text-zinc-400 leading-relaxed">零碳排取代傳統柴油發電機，提供純淨不斷電系統。</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-cyan-400 uppercase tracking-widest">Data Center UPS</div>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
-                    <div class="w-14 h-14 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-4 border border-blue-500/20">
-                        <i class="fa-solid fa-tower-cell"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-2">電信與微電網</h4>
-                        <p class="text-xs text-zinc-400 leading-relaxed">分散式 BESS 儲能整合，確保全天候滿電運轉。</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-blue-400 uppercase tracking-widest">Telecom Microgrid</div>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
-                    <div class="w-14 h-14 mx-auto rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-4 border border-emerald-500/20">
-                        <i class="fa-solid fa-helicopter"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-2">重載無人載具</h4>
-                        <p class="text-xs text-zinc-400 leading-relaxed">長航時巡檢與高酬載作業，發揮極致能量密度。</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-emerald-400 uppercase tracking-widest">Heavy-Duty UAV</div>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
-                    <div class="w-14 h-14 mx-auto rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-4 border border-indigo-500/20">
-                        <i class="fa-solid fa-industry"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-2">化工廠區供電</h4>
-                        <p class="text-xs text-zinc-400 leading-relaxed">工業級戶外防護機櫃，將副產氫轉化為穩定電力。</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-indigo-400 uppercase tracking-widest">Chemical Plant</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 聯絡我們 -->
-    <section id="contact" class="py-24 bg-zinc-950/80 border-t border-zinc-900 relative z-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Get In Touch</span>
-                <h2 class="text-3xl md:text-4xl font-black mb-4">與崇瀚動力工程團隊聯繫</h2>
-                <p class="text-zinc-400">歡迎掃描 LINE 行動條碼，或填寫下方表單索取發電機組規格書與微電網整合方案。</p>
-            </div>
-
-            <div class="grid md:grid-cols-5 gap-10 items-start">
-                <div class="md:col-span-2 space-y-8">
-                    <div class="glass-panel p-8 rounded-3xl text-center border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500">
-                        <div class="w-16 h-16 mx-auto bg-[#00e65b]/10 rounded-2xl flex items-center justify-center mb-4 border border-[#00e65b]/30">
-                            <i class="fa-brands fa-line text-4xl text-[#00e65b]"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">CHONEX 官方技術諮詢</h3>
-                        <p class="text-zinc-400 text-sm mb-6">掃描下方條碼，與系統整合工程師直接對接</p>
-                        
-                        <div class="bg-white p-3.5 rounded-2xl inline-block mb-4 shadow-[0_0_25px_rgba(0,230,91,0.2)] hover:scale-105 transition duration-300">
-                            <img src="line-qr.png" alt="CHONEX LINE QR Code" class="w-36 h-36 object-contain">
-                        </div>
-                        
-                        <p class="text-xs font-brand font-bold text-[#00e65b] tracking-widest uppercase">Powering Your Project</p>
-                    </div>
-
-                    <div class="glass-panel p-8 rounded-3xl border border-zinc-800">
-                        <ul class="space-y-5 text-zinc-300 text-sm">
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-building text-[#00e65b] mt-1 mr-4 text-lg w-5 text-center"></i>
-                                <div>
-                                    <strong class="text-white block">崇瀚動力股份有限公司</strong>
-                                    <span class="text-xs text-zinc-400 font-brand">CHONEX POWER SYSTEMS</span>
+                            <figure class="relative aspect-[16/9] overflow-hidden rounded-2xl border border-zinc-700 bg-black">
+                                <img src="assets/fixed-wing-uav-flight.webp" alt="大型固定翼無人機在山區上空飛行，具有長機翼、單一機身與後推式螺旋槳" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
+                                <figcaption class="absolute bottom-3 left-3 right-3 text-sm font-bold text-white">大型固定翼無人機｜飛行外觀示意</figcaption>
+                            </figure>
+                            <figure class="relative mt-4 aspect-[16/9] overflow-hidden rounded-2xl border border-[#00e65b]/40 bg-black shadow-[0_0_28px_rgba(0,230,91,0.1)]">
+                                <img src="assets/fixed-wing-uav-hydrogen-cutaway.webp" alt="大型固定翼無人機機身側開剖面概念示意，中央可見碳纖維高壓儲氫瓶，周圍配置燃料電池模組、電力電子設備與管線" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/45"></div>
+                                <div class="absolute top-3 left-3 right-3 z-10 flex justify-between items-center gap-2 text-[9px] md:text-[10px] font-brand tracking-widest text-white">
+                                    <span class="rounded-md bg-black/70 border border-white/20 px-2 py-1">FUSELAGE CUTAWAY</span>
+                                    <span class="rounded-md bg-[#00e65b]/15 border border-[#00e65b]/50 text-[#00e65b] px-2 py-1">SYSTEM CONCEPT</span>
                                 </div>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-envelope text-[#00e65b] mt-1 mr-4 text-lg w-5 text-center"></i>
-                                <span>service@cnxpwr.com</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-location-dot text-[#00e65b] mt-1 mr-4 text-lg w-5 text-center"></i>
-                                <span>台灣台南市 (研發與系統整合中心)</span>
-                            </li>
-                        </ul>
+                                <svg class="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 562" preserveAspectRatio="none" aria-hidden="true">
+                                    <g fill="none" stroke="#d9fff0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+                                        <path d="M 210 86 L 390 86 L 510 190" />
+                                        <path d="M 820 86 L 735 86 L 675 175" />
+                                        <path d="M 235 470 L 360 470 L 465 325" />
+                                        <path d="M 870 465 L 835 425 L 842 370" />
+                                    </g>
+                                    <g fill="#00e65b" stroke="#ffffff" stroke-width="1.2">
+                                        <circle cx="510" cy="190" r="4"/><circle cx="675" cy="175" r="4"/><circle cx="465" cy="325" r="4"/><circle cx="842" cy="370" r="4"/>
+                                    </g>
+                                </svg>
+                                <div class="hidden md:block absolute top-[10%] left-[4%] z-10 max-w-[29%] rounded-lg bg-black/55 px-2 py-1.5 backdrop-blur-sm">
+                                    <p class="text-xs font-bold text-white">氫燃料電池模組</p><p class="text-[10px] text-zinc-200">高能效・穩定輸出</p>
+                                </div>
+                                <div class="hidden md:block absolute top-[10%] right-[3%] z-10 max-w-[31%] text-right rounded-lg bg-black/55 px-2 py-1.5 backdrop-blur-sm">
+                                    <p class="text-xs font-bold text-white">電力電子與控制系統</p><p class="text-[10px] text-zinc-200">動力管理・飛行控制整合</p>
+                                </div>
+                                <div class="hidden md:block absolute bottom-[7%] left-[4%] z-10 max-w-[34%] rounded-lg bg-black/65 px-2 py-1.5 backdrop-blur-sm">
+                                    <p class="text-xs font-bold text-white">碳纖維高壓儲氫瓶</p><p class="text-[10px] text-zinc-200">輕量化儲氫・整合固定</p>
+                                </div>
+                                <div class="hidden md:block absolute bottom-[7%] right-[3%] z-10 max-w-[27%] text-right rounded-lg bg-black/65 px-2 py-1.5 backdrop-blur-sm">
+                                    <p class="text-xs font-bold text-white">任務載荷艙</p><p class="text-[10px] text-zinc-200">感測設備・多元應用</p>
+                                </div>
+                            </figure>
+                            <div class="grid grid-cols-2 gap-2 mt-3 md:hidden">
+                                <span class="rounded-lg bg-black/75 border border-[#00e65b]/40 px-3 py-2 text-[11px] font-semibold text-white"><span class="text-[#00e65b] mr-1">01</span>氫燃料電池模組</span>
+                                <span class="rounded-lg bg-black/75 border border-[#00e65b]/40 px-3 py-2 text-[11px] font-semibold text-white"><span class="text-[#00e65b] mr-1">02</span>電力電子與控制系統</span>
+                                <span class="rounded-lg bg-black/75 border border-[#00e65b]/40 px-3 py-2 text-[11px] font-semibold text-white"><span class="text-[#00e65b] mr-1">03</span>碳纖維高壓儲氫瓶</span>
+                                <span class="rounded-lg bg-black/75 border border-[#00e65b]/40 px-3 py-2 text-[11px] font-semibold text-white"><span class="text-[#00e65b] mr-1">04</span>任務載荷艙</span>
+                            </div>
+                            <p class="text-[10px] md:text-xs text-zinc-500 leading-relaxed mt-3">機身內部為氫動力系統概念示意，實際元件位置、尺寸與安全配置須依正式工程設計及驗證為準。</p>
+                            <div class="flex justify-between items-center gap-3 text-[9px] md:text-[10px] font-brand text-zinc-400 border-t border-zinc-800/80 pt-3 mt-3">
+                                <span>HYDROGEN POWER MODULE</span>
+                                <span class="text-[#00e65b]">● HIGH-PRESSURE H₂</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="md:col-span-3">
-                    <form action="#" method="POST" class="space-y-6 glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-zinc-300 mb-2">您的姓名 / 公司名稱</label>
-                                <input type="text" name="name" required class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#00e65b] transition duration-300">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-zinc-300 mb-2">電子郵件</label>
-                                <input type="email" name="email" required class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#00e65b] transition duration-300">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-zinc-300 mb-2">選擇諮詢項目</label>
-                            <select class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-zinc-300 focus:outline-none focus:border-[#00e65b] transition duration-300">
-                                <option>戶外型氫能發電機櫃 (10kW-80kW)</option>
-                                <option>重載無人機氫燃料電池動力模組</option>
-                                <option>BESS 電池儲能微電網與 EMS 控制整合</option>
-                                <option>其他專案合作洽詢</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-zinc-300 mb-2">專案需求與規格說明</label>
-                            <textarea name="message" rows="5" required class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#00e65b] transition duration-300"></textarea>
-                        </div>
-                        <button type="button" class="w-full py-4 font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_25px_rgba(0,230,91,0.3)]">
-                            送出技術諮詢
-                        </button>
-                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    
+
+    <!-- 系統照片與應用情境展示 -->
+    <section id="system-gallery" class="py-24 border-t border-zinc-900 relative z-10 bg-black/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12">
+                <div>
+                    <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Engineering in View</span>
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">從飛行平台到氫動力核心</h2>
+                    <p class="text-zinc-400 max-w-2xl leading-relaxed">透過整機外觀、機身剖面、模組細節與地面支援情境，呈現固定翼無人機氫動力系統的整合思路。</p>
                 </div>
+                <a href="#contact" class="inline-flex items-center text-sm font-bold text-[#00e65b] hover:text-emerald-300 shrink-0">討論系統整合需求 <i class="fa-solid fa-arrow-right ml-2"></i></a>
             </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <figure class="group glass-panel rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition duration-300">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900"><img src="assets/uav-flight-secondary.webp" alt="大型固定翼無人機在山區與水庫上空飛行的情境示意" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div><span class="absolute top-3 left-3 rounded-md bg-black/65 border border-white/15 px-2 py-1 text-[10px] font-brand tracking-widest text-zinc-200">FLIGHT PLATFORM</span><figcaption class="absolute bottom-4 left-4 right-4"><h3 class="font-bold text-white text-lg">固定翼飛行平台</h3><p class="text-xs text-zinc-300 mt-1">長航時巡檢・航測・遠距任務</p></figcaption></div>
+                </figure>
+                <figure class="group glass-panel rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition duration-300">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900"><img src="assets/uav-cutaway-detail.webp" alt="固定翼無人機開啟機身側板後，露出橫向碳纖維高壓儲氫瓶與系統管路的近景概念圖" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div><span class="absolute top-3 left-3 rounded-md bg-black/65 border border-white/15 px-2 py-1 text-[10px] font-brand tracking-widest text-zinc-200">FUSELAGE CUTAWAY</span><figcaption class="absolute bottom-4 left-4 right-4"><h3 class="font-bold text-white text-lg">機身內部儲氫配置</h3><p class="text-xs text-zinc-300 mt-1">碳纖維高壓瓶・管路・固定結構</p></figcaption></div>
+                </figure>
+                <figure class="group glass-panel rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition duration-300">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900"><img src="assets/uav-fuelcell-detail.webp" alt="無人機機身內部燃料電池相關模組、散熱模組、橘色線束及管路的近景概念圖" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div><span class="absolute top-3 left-3 rounded-md bg-black/65 border border-white/15 px-2 py-1 text-[10px] font-brand tracking-widest text-zinc-200">POWERTRAIN DETAIL</span><figcaption class="absolute bottom-4 left-4 right-4"><h3 class="font-bold text-white text-lg">燃料電池與電力電子</h3><p class="text-xs text-zinc-300 mt-1">供電模組・散熱與線束整合</p></figcaption></div>
+                </figure>
+                <figure class="group glass-panel rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition duration-300">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900"><img src="assets/uav-field-maintenance.webp" alt="工程技術人員在戶外測試場檢查大型固定翼無人機機身系統的情境示意" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div><span class="absolute top-3 left-3 rounded-md bg-black/65 border border-white/15 px-2 py-1 text-[10px] font-brand tracking-widest text-zinc-200">FIELD INTEGRATION</span><figcaption class="absolute bottom-4 left-4 right-4"><h3 class="font-bold text-white text-lg">整機檢測與現場整合</h3><p class="text-xs text-zinc-300 mt-1">機體檢視・系統狀態確認</p></figcaption></div>
+                </figure>
+                <figure class="group glass-panel rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition duration-300">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900"><img src="assets/uav-control-room.webp" alt="地面控制站人員透過多螢幕監看固定翼無人機航線與任務資料的情境示意" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div><span class="absolute top-3 left-3 rounded-md bg-black/65 border border-white/15 px-2 py-1 text-[10px] font-brand tracking-widest text-zinc-200">GROUND CONTROL</span><figcaption class="absolute bottom-4 left-4 right-4"><h3 class="font-bold text-white text-lg">地面控制與任務監控</h3><p class="text-xs text-zinc-300 mt-1">航線規劃・即時監看・資料分析</p></figcaption></div>
+                </figure>
+                <figure class="group glass-panel rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition duration-300">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900"><img src="assets/hydrogen-powertrain-testbench.webp" alt="氫燃料電池動力模組在工程測試台上的概念示意，包含高壓儲氫瓶、金屬堆疊模組與管路" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div><span class="absolute top-3 left-3 rounded-md bg-black/65 border border-white/15 px-2 py-1 text-[10px] font-brand tracking-widest text-zinc-200">POWER MODULE TEST</span><figcaption class="absolute bottom-4 left-4 right-4"><h3 class="font-bold text-white text-lg">氫動力模組測試台</h3><p class="text-xs text-zinc-300 mt-1">模組佈局・管路與電控整合</p></figcaption></div>
+                </figure>
+            </div>
+            <p class="text-xs text-zinc-500 leading-relaxed mt-6">圖片為寫實風格的系統概念與應用情境示意，非實際飛行、測試或已驗證產品的紀錄照片；實際元件配置及規格請以正式工程文件為準。</p>
         </div>
     </section>
 
-    <!-- 頁尾 -->
-    <footer class="py-12 border-t border-zinc-900 bg-[#050607] text-center text-zinc-500 text-sm relative z-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center space-x-3">
-                <span class="font-brand font-black text-white tracking-widest">CHONEX</span>
-                <span class="text-zinc-700">|</span>
-                <span class="text-zinc-400">崇瀚動力股份有限公司</span>
-            </div>
-            <p class="text-xs font-brand tracking-widest uppercase text-zinc-600">
-                Power • People • Progress — Driven By Engineering
-            </p>
-            <p class="text-xs">&copy; 2026 CHONEX POWER SYSTEMS. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- 應用場景與產業 -->
+
+    <section id="applications" class="py-24 border-t border-zinc-900 relative z-10">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+
+                <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Energy In Motion</span>
+
+                <h2 class="text-3xl md:text-4xl font-black mb-4">賦能多元產業的綠能心臟</h2>
+
+                <p class="text-zinc-400">從企業識別到產品實戰應用，提供一致的高端品質與高可靠度電力支援。</p>
+
+            </div>
+
+
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+
+                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
+
+                    <div class="relative aspect-[16/9] -mx-6 -mt-6 mb-5 overflow-hidden"><img src="assets/hydrogen-microgrid-cabinet.webp" alt="工業級氫能發電與微電網機櫃應用情境" class="w-full h-full object-cover" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div></div>
+
+                    <div>
+
+                        <h4 class="text-lg font-bold text-white mb-2">資料中心備援</h4>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">零碳排取代傳統柴油發電機，提供純淨不斷電系統。</p>
+
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-cyan-400 uppercase tracking-widest">Data Center UPS</div>
+
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
+
+                    <div class="relative aspect-[16/9] -mx-6 -mt-6 mb-5 overflow-hidden"><img src="assets/hydrogen-powertrain-testbench.webp" alt="氫燃料電池供電模組與電力轉換設備概念示意" class="w-full h-full object-cover" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div></div>
+
+                    <div>
+
+                        <h4 class="text-lg font-bold text-white mb-2">電信與微電網</h4>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">分散式 BESS 儲能整合，確保全天候滿電運轉。</p>
+
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-blue-400 uppercase tracking-widest">Telecom Microgrid</div>
+
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
+
+                    <div class="relative aspect-[16/9] -mx-6 -mt-6 mb-5 overflow-hidden"><img src="assets/fixed-wing-uav-flight.webp" alt="大型固定翼無人機航測與巡檢應用情境" class="w-full h-full object-cover" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div></div>
+
+                    <div>
+
+                        <h4 class="text-lg font-bold text-white mb-2">大型固定翼無人機</h4>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">長航時巡檢、航測與遠距任務，延伸無人機應用場景。</p>
+
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-emerald-400 uppercase tracking-widest">Fixed-Wing UAV</div>
+
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-[#00e65b]/50 transition text-center flex flex-col justify-between">
+
+                    <div class="relative aspect-[16/9] -mx-6 -mt-6 mb-5 overflow-hidden"><img src="assets/uav-fuelcell-detail.webp" alt="燃料電池、散熱與電力電子模組整合的工業應用概念圖" class="w-full h-full object-cover" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div></div>
+
+                    <div>
+
+                        <h4 class="text-lg font-bold text-white mb-2">化工廠區供電</h4>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">工業級戶外防護機櫃，將副產氫轉化為穩定電力。</p>
+
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-zinc-800/80 text-[10px] font-brand text-indigo-400 uppercase tracking-widest">Chemical Plant</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 聯絡我們 -->
+
+    <section id="contact" class="py-24 bg-zinc-950/80 border-t border-zinc-900 relative z-10">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+
+                <span class="text-[#00e65b] font-brand font-bold text-xs uppercase tracking-[0.3em] mb-2 block">Get In Touch</span>
+
+                <h2 class="text-3xl md:text-4xl font-black mb-4">與崇瀚動力工程團隊聯繫</h2>
+
+                <p class="text-zinc-400">歡迎掃描 LINE 行動條碼，或填寫下方表單索取發電機組規格書與微電網整合方案。</p>
+
+            </div>
+
+
+
+            <div class="grid md:grid-cols-5 gap-10 items-start">
+
+                <div class="md:col-span-2 space-y-8">
+
+                    <div class="glass-panel p-8 rounded-3xl text-center border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500">
+
+                        <div class="w-16 h-16 mx-auto bg-[#00e65b]/10 rounded-2xl flex items-center justify-center mb-4 border border-[#00e65b]/30">
+
+                            <i class="fa-brands fa-line text-4xl text-[#00e65b]"></i>
+
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-2">CHONEX 官方技術諮詢</h3>
+
+                        <p class="text-zinc-400 text-sm mb-6">掃描下方條碼，與系統整合工程師直接對接</p>
+
+
+
+                        <div class="bg-white p-3.5 rounded-2xl inline-block mb-4 shadow-[0_0_25px_rgba(0,230,91,0.2)] hover:scale-105 transition duration-300">
+
+                            <img src="line-qr.png" alt="CHONEX LINE QR Code" class="w-36 h-36 object-contain">
+
+                        </div>
+
+
+
+                        <p class="text-xs font-brand font-bold text-[#00e65b] tracking-widest uppercase">Powering Your Project</p>
+
+                    </div>
+
+
+
+                    <div class="glass-panel p-8 rounded-3xl border border-zinc-800">
+
+                        <ul class="space-y-5 text-zinc-300 text-sm">
+
+                            <li class="flex items-start">
+
+                                <i class="fa-solid fa-building text-[#00e65b] mt-1 mr-4 text-lg w-5 text-center"></i>
+
+                                <div>
+
+                                    <strong class="text-white block">崇瀚動力股份有限公司</strong>
+
+                                    <span class="text-xs text-zinc-400 font-brand">CHONEX POWER SYSTEMS</span>
+
+                                </div>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fa-solid fa-envelope text-[#00e65b] mt-1 mr-4 text-lg w-5 text-center"></i>
+
+                                <span>service@cnxpwr.com</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fa-solid fa-location-dot text-[#00e65b] mt-1 mr-4 text-lg w-5 text-center"></i>
+
+                                <span>台灣台南市 (研發與系統整合中心)</span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="md:col-span-3">
+
+                    <form action="#" method="POST" class="space-y-6 glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+
+                            <div>
+
+                                <label class="block text-sm font-medium text-zinc-300 mb-2">您的姓名 / 公司名稱</label>
+
+                                <input type="text" name="name" required class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#00e65b] transition duration-300">
+
+                            </div>
+
+                            <div>
+
+                                <label class="block text-sm font-medium text-zinc-300 mb-2">電子郵件</label>
+
+                                <input type="email" name="email" required class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#00e65b] transition duration-300">
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <label class="block text-sm font-medium text-zinc-300 mb-2">選擇諮詢項目</label>
+
+                            <select class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-zinc-300 focus:outline-none focus:border-[#00e65b] transition duration-300">
+
+                                <option>戶外型氫能發電機櫃 (10kW-80kW)</option>
+
+                                <option>重載無人機氫燃料電池動力模組</option>
+
+                                <option>BESS 電池儲能微電網與 EMS 控制整合</option>
+
+                                <option>其他專案合作洽詢</option>
+
+                            </select>
+
+                        </div>
+
+                        <div>
+
+                            <label class="block text-sm font-medium text-zinc-300 mb-2">專案需求與規格說明</label>
+
+                            <textarea name="message" rows="5" required class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#00e65b] transition duration-300"></textarea>
+
+                        </div>
+
+                        <button type="button" class="w-full py-4 font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_25px_rgba(0,230,91,0.3)]">
+
+                            送出技術諮詢
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 頁尾 -->
+
+    <footer class="py-12 border-t border-zinc-900 bg-[#050607] text-center text-zinc-500 text-sm relative z-10">
+
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <div class="flex items-center space-x-3">
+
+                <span class="font-brand font-black text-white tracking-widest">CHONEX</span>
+
+                <span class="text-zinc-700">|</span>
+
+                <span class="text-zinc-400">崇瀚動力股份有限公司</span>
+
+            </div>
+
+            <p class="text-xs font-brand tracking-widest uppercase text-zinc-600">
+
+                Power • People • Progress — Driven By Engineering
+
+            </p>
+
+            <p class="text-xs">&copy; 2026 CHONEX POWER SYSTEMS. All rights reserved.</p>
+
+        </div>
+
+    </footer>
+
+
 
 </body>
+
 </html>
