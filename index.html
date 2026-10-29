@@ -50,7 +50,7 @@
             height: 24%;
             background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
         }
-        /* 機櫃綠光燈條特效 */
+        /* 機櫃與 HUD 綠光燈條特效 */
         .led-strip-green {
             position: relative;
         }
@@ -74,6 +74,11 @@
                 #1a2026 6px,
                 #1a2026 10px
             );
+        }
+        /* 剖面圖掃描線特效 */
+        .scanlines {
+            background: linear-gradient(rgba(0, 230, 91, 0.04) 1px, transparent 1px);
+            background-size: 100% 4px;
         }
         .glass-panel {
             background: rgba(15, 19, 22, 0.78);
@@ -357,12 +362,12 @@
                     </div>
                 </div>
 
-                <!-- 產品 2: 航太級多軸無人機 (已更換為大型農業/工業用多軸機) -->
+                <!-- 產品 2: 航太級多軸無人機 (更新為 CAD 透視工程視窗) -->
                 <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
                     <div class="p-8 md:p-12 flex flex-col justify-center lg:order-1 order-2">
                         <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Aerospace &amp; Mobility</div>
                         <h3 class="text-2xl md:text-3xl font-black mb-4">重載多軸無人機氫動力模組</h3>
-                        <p class="text-zinc-400 mb-6 leading-relaxed">針對大型農噴、長航時巡檢與物流載貨等工業級多軸無人機開發的高能量密度系統。突破傳統鋰電池續航極限，滿足大酬載作業需求，將潔淨能源轉化為強勁飛行推力。</p>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">針對大型農噴、長航時巡檢與物流載貨等工業級多軸無人機開發的高能量密度系統。以碳纖維高壓氣瓶與燃料電池堆為核心，突破傳統鋰電池極限，實現大酬載與長航時作業。</p>
                         <ul class="space-y-3 text-sm text-zinc-300 font-medium mb-8">
                             <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> 輕量化碳纖維高壓氣瓶與大流量減壓調控</li>
                             <li class="flex items-center"><i class="fa-solid fa-check text-[#00e65b] mr-3"></i> 內建 CAN Bus (J1939) 高速底層通訊協議</li>
@@ -374,13 +379,34 @@
                             </a>
                         </div>
                     </div>
-                    <div class="relative h-72 lg:h-auto overflow-hidden lg:order-2 order-1 bg-zinc-900">
-                        <!-- 已替換為大型農噴/重載多軸無人機圖片 -->
-                        <img src="https://images.unsplash.com/photo-1583508187834-0d859b9fbfa7?auto=format&fit=crop&w=1000&q=80" alt="重載多軸無人機氫動力模組" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-l from-[#07090a]/80 via-[#07090a]/30 to-transparent lg:bg-gradient-to-t"></div>
+
+                    <!-- 科技感 3D 剖面圖 HUD 分析視窗 -->
+                    <div class="relative h-72 lg:h-auto overflow-hidden bg-[#0a0d10] lg:order-2 order-1 flex items-center justify-center border-l border-zinc-800">
+                        <!-- ⚠️ 圖片替換區：當您有自己的無人機剖面渲染圖，請把下面這個 src 改成您圖檔的名字 (例如 drone-cad.png) ⚠️ -->
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1000&q=80" alt="無人機氫動力剖面圖" class="w-full h-full object-cover opacity-50 mix-blend-screen group-hover:scale-105 transition duration-700 filter contrast-125 grayscale">
+                        
+                        <!-- 科技掃描線與漸層遮罩 -->
+                        <div class="absolute inset-0 scanlines pointer-events-none opacity-40"></div>
+                        <div class="absolute inset-0 bg-gradient-to-l from-[#07090a]/90 via-[#07090a]/20 to-transparent lg:bg-gradient-to-t"></div>
+                        
+                        <!-- HUD 模擬工程數據 (展示氣瓶與燃料電池) -->
+                        <div class="absolute top-6 left-6 text-[#00e65b] font-brand text-[9px] tracking-[0.2em] leading-relaxed drop-shadow-[0_0_5px_rgba(0,230,91,0.5)]">
+                            <p class="mb-1"><span class="text-white">COMPONENT:</span> FUEL CELL STACK</p>
+                            <p class="mb-1"><span class="text-white">H2 CYLINDER:</span> 300BAR / TYPE IV</p>
+                            <p><span class="text-white">STATUS:</span> STRUCTURAL INTEGRITY 100%</p>
+                        </div>
+                        
+                        <!-- 十字對位標點裝飾 -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 border border-[#00e65b]/40 rounded-full flex items-center justify-center pointer-events-none group-hover:rotate-90 transition duration-1000">
+                            <div class="w-1.5 h-1.5 bg-[#00e65b] rounded-full shadow-[0_0_8px_#00e65b]"></div>
+                            <div class="absolute top-0 bottom-0 left-1/2 w-[1px] h-full bg-[#00e65b]/60 -translate-x-1/2"></div>
+                            <div class="absolute left-0 right-0 top-1/2 h-[1px] w-full bg-[#00e65b]/60 -translate-y-1/2"></div>
+                        </div>
+
+                        <!-- 右下角視角標示 -->
                         <div class="absolute bottom-6 right-6 flex space-x-2">
-                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-[#00e65b] border border-[#00e65b]/30">&gt; 3倍續航力提升</span>
-                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-zinc-200 border border-zinc-700">重載作業對應</span>
+                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-[10px] font-brand font-bold text-[#00e65b] border border-[#00e65b]/30 tracking-widest">X-RAY VIEW</span>
+                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-zinc-200 border border-zinc-700">內部結構剖析</span>
                         </div>
                     </div>
                 </div>
@@ -398,7 +424,6 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <!-- 資料中心備援 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
                     <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="資料中心備援機櫃">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -408,7 +433,6 @@
                         <p class="text-xs text-zinc-300 mt-1">零碳排取代傳統柴油發電機，提供純淨不斷電系統。</p>
                     </div>
                 </div>
-                <!-- 電信與微電網 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
                     <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="電信基站與微電網">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -418,9 +442,9 @@
                         <p class="text-xs text-zinc-300 mt-1">分散式 BESS 儲能整合，確保全天候滿電運轉。</p>
                     </div>
                 </div>
-                <!-- 高階無人載具 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
-                    <img src="https://images.unsplash.com/photo-1620917670356-9a29d5b78044?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="高階無人載具飛行作業">
+                    <!-- 應用場景也替換為大型工業無人機 -->
+                    <img src="https://images.unsplash.com/photo-1583508187834-0d859b9fbfa7?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="重載無人載具">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-6">
                         <i class="fa-solid fa-helicopter text-[#00e65b] text-2xl mb-2"></i>
@@ -428,7 +452,6 @@
                         <p class="text-xs text-zinc-300 mt-1">長航時巡檢與高酬載作業，發揮極致能量密度。</p>
                     </div>
                 </div>
-                <!-- 化工廠區供電 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
                     <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="化工廠區供電設備">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -442,7 +465,7 @@
         </div>
     </section>
 
-    <!-- 聯絡我們 (已確保標籤完全閉合，不會再消失) -->
+    <!-- 聯絡我們 -->
     <section id="contact" class="py-24 bg-zinc-950/80 border-t border-zinc-900 relative z-10">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -452,7 +475,6 @@
             </div>
 
             <div class="grid md:grid-cols-5 gap-10 items-start">
-                <!-- 左側：LINE QR Code 與聯絡資訊 -->
                 <div class="md:col-span-2 space-y-8">
                     <div class="glass-panel p-8 rounded-3xl text-center border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500">
                         <div class="w-16 h-16 mx-auto bg-[#00e65b]/10 rounded-2xl flex items-center justify-center mb-4 border border-[#00e65b]/30">
@@ -460,11 +482,9 @@
                         </div>
                         <h3 class="text-xl font-bold mb-2">CHONEX 官方技術諮詢</h3>
                         <p class="text-zinc-400 text-sm mb-6">掃描下方條碼，與系統整合工程師直接對接</p>
-                        
                         <div class="bg-white p-3.5 rounded-2xl inline-block mb-4 shadow-[0_0_25px_rgba(0,230,91,0.2)] hover:scale-105 transition duration-300">
                             <img src="line-qr.png" alt="CHONEX LINE QR Code" class="w-36 h-36 object-contain">
                         </div>
-                        
                         <p class="text-xs font-brand font-bold text-[#00e65b] tracking-widest uppercase">Powering Your Project</p>
                     </div>
 
@@ -489,7 +509,6 @@
                     </div>
                 </div>
 
-                <!-- 右側：聯絡表單 -->
                 <div class="md:col-span-3">
                     <form action="#" method="POST" class="space-y-6 glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800">
                         <div class="grid md:grid-cols-2 gap-6">
@@ -506,7 +525,7 @@
                             <label class="block text-sm font-medium text-zinc-300 mb-2">選擇諮詢項目</label>
                             <select class="w-full bg-black/70 border border-zinc-800 rounded-xl px-4 py-3.5 text-zinc-300 focus:outline-none focus:border-[#00e65b] transition duration-300">
                                 <option>戶外型氫能發電機櫃 (10kW-80kW)</option>
-                                <option>多軸無人機氫燃料電池動力模組</option>
+                                <option>重載無人機氫燃料電池動力模組</option>
                                 <option>BESS 電池儲能微電網與 EMS 控制整合</option>
                                 <option>其他專案合作洽詢</option>
                             </select>
