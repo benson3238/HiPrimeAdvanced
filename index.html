@@ -152,7 +152,7 @@
                 </div>
             </div>
             
-            <!-- 右側：飛行無人機大圖 (object-contain 不裁切) -->
+            <!-- 右側：飛行中的重載無人機 (fixed-wing-uav-flight.webp) -->
             <div class="lg:col-span-5 relative">
                 <div class="glass-panel p-6 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden led-strip-green">
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-zinc-800/80">
@@ -195,7 +195,7 @@
                     <span class="text-2xl font-brand font-black text-[#00e65b]">03</span>
                     <h3 class="text-lg font-bold text-white">產業價值 | 滿電驅動</h3>
                 </div>
-                <p class="text-sm text-zinc-400 leading-relaxed">滿電驅動、持續輸出，透過零碳排氫能與 BESS 智慧儲能整合，創造更潔淨、更強大的未來。</p>
+                <p class="text-sm text-zinc-400 leading-relaxed">滿電驅動,持續輸出，透過零碳排氫能與 BESS 智慧儲能整合，創造更潔淨、更強大的未來。</p>
             </div>
         </div>
     </section>
@@ -253,7 +253,7 @@
         </div>
     </section>
 
-    <!-- 產品與系統陣列 (大尺寸圖片，不裁切原圖) -->
+    <!-- 產品與系統陣列 (大尺寸圖片，完整不裁切) -->
     <section id="products" class="py-24 bg-zinc-950/50 border-t border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -263,10 +263,10 @@
             </div>
 
             <div class="space-y-16">
-                <!-- 產品 1: 戶外型氫能發電與微電網機櫃 (hydrogen-microgrid-cabinet.jpg) -->
+                <!-- 產品 1: 戶外型氫能發電與微電網機櫃 (已修正檔名為 hydrogen-microgrid-cabinet.webp) -->
                 <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green items-center">
                     <div class="relative h-80 lg:h-96 bg-black p-4 flex items-center justify-center border-r border-zinc-800">
-                        <img src="hydrogen-microgrid-cabinet.jpg" alt="戶外型氫能發電與微電網機櫃" class="w-full h-full object-contain">
+                        <img src="hydrogen-microgrid-cabinet.webp" alt="戶外型氫能發電與微電網機櫃" class="w-full h-full object-contain">
                     </div>
                     <div class="p-8 md:p-12 flex flex-col justify-center">
                         <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Stationary Power</div>
@@ -310,7 +310,7 @@
         </div>
     </section>
 
-    <!-- 應用場景與產業 (大圖展示，完整不裁切) -->
+    <!-- 應用場景與產業 (大尺寸展示，完整呈現所有資料夾內照片) -->
     <section id="applications" class="py-24 border-t border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -332,7 +332,7 @@
                     </div>
                 </div>
 
-                <!-- 2. 動力系統測試平台 -->
+                <!-- 2. 動力系統測試平台 (hydrogen-powertrain-testbench.webp) -->
                 <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
                     <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
                         <img src="hydrogen-powertrain-testbench.webp" alt="氫能動力測試平台" class="w-full h-full object-contain">
@@ -344,7 +344,19 @@
                     </div>
                 </div>
 
-                <!-- 3. 地面控制室與數據監控 -->
+                <!-- 3. 無人機剖面細節 (uav-cutaway-detail.webp) -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="uav-cutaway-detail.webp" alt="無人機剖面結構細節" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Structure Analysis</span>
+                        <h4 class="text-xl font-bold text-white mb-2">無人機剖面結構解析</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed">精心配置的高壓儲氫瓶與動力艙，兼顧結構強度與輕量化設計。</p>
+                    </div>
+                </div>
+
+                <!-- 4. 地面控制室與數據監控 -->
                 <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
                     <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
                         <img src="uav-control-room.webp" alt="地面控制室與遙測監控" class="w-full h-full object-contain">
@@ -356,7 +368,7 @@
                     </div>
                 </div>
 
-                <!-- 4. 機棚外實機檢修維護 -->
+                <!-- 5. 機棚外實機檢修維護 -->
                 <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
                     <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
                         <img src="uav-field-maintenance.webp" alt="機棚外實機檢修維護" class="w-full h-full object-contain">
@@ -369,7 +381,7 @@
                 </div>
             </div>
 
-            <!-- 5. 滿版大圖：山區巡檢飛行實景 -->
+            <!-- 6. 滿版大圖：山區巡檢飛行實景 -->
             <div class="mt-8 glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition">
                 <div class="h-96 lg:h-[500px] bg-black p-4 flex items-center justify-center border-b border-zinc-800">
                     <img src="uav-flight-secondary.webp" alt="山區長航時巡檢實景" class="w-full h-full object-contain">
