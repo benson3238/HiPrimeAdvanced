@@ -15,7 +15,6 @@
         .font-brand {
             font-family: 'Montserrat', sans-serif;
         }
-        /* 滿電電池 O 核心樣式 */
         .chonex-o {
             position: relative;
             display: inline-flex;
@@ -65,7 +64,7 @@
             border-radius: 4px;
         }
         .glass-panel {
-            background: rgba(15, 19, 22, 0.82);
+            background: rgba(15, 19, 22, 0.85);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -78,7 +77,7 @@
 </head>
 <body class="text-zinc-100 antialiased selection:bg-[#00e65b] selection:text-black overflow-x-hidden">
 
-    <!-- 背景環境光暈 -->
+    <!-- 背景光暈 -->
     <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
     <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
 
@@ -128,7 +127,7 @@
         </div>
     </header>
 
-    <!-- 視覺主視覺 (Hero Section) 搭配飛行中的重載無人機實拍 -->
+    <!-- 主視覺 Hero Section -->
     <section class="relative pt-40 pb-20 md:pt-48 md:pb-28 z-10">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7">
@@ -153,7 +152,7 @@
                 </div>
             </div>
             
-            <!-- 右側：飛行中的重載無人機實拍 -->
+            <!-- 右側：飛行無人機大圖 (object-contain 不裁切) -->
             <div class="lg:col-span-5 relative">
                 <div class="glass-panel p-6 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden led-strip-green">
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-zinc-800/80">
@@ -166,25 +165,8 @@
                         </span>
                     </div>
 
-                    <div class="relative rounded-2xl overflow-hidden h-64 mb-5 border border-zinc-700 group">
-                        <img src="fixed-wing-uav-flight.webp" alt="飛行中的重載無人機" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                            <div>
-                                <p class="text-[10px] text-[#00e65b] font-brand tracking-widest uppercase">Long Endurance Flight</p>
-                                <p class="text-sm font-bold text-white">氫能源重載無人機空中巡檢實景</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-zinc-400">航時提升 (Endurance Multiplier)</span>
-                            <span class="text-[#00e65b] font-bold">&gt; 3X</span>
-                        </div>
-                        <div class="w-full h-2.5 bg-zinc-900 rounded-full overflow-hidden p-0.5 border border-zinc-800">
-                            <div class="h-full w-full bg-gradient-to-r from-[#00e65b] to-emerald-400 rounded-full shadow-[0_0_10px_#00e65b]"></div>
-                        </div>
+                    <div class="relative rounded-2xl overflow-hidden h-72 bg-black border border-zinc-700 flex items-center justify-center">
+                        <img src="fixed-wing-uav-flight.webp" alt="飛行中的重載無人機" class="w-full h-full object-contain">
                     </div>
                 </div>
             </div>
@@ -218,7 +200,7 @@
         </div>
     </section>
 
-    <!-- CHONEX 品牌設計概念解析 -->
+    <!-- 品牌設計概念解析 -->
     <section id="brand-concept" class="py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
@@ -271,7 +253,7 @@
         </div>
     </section>
 
-    <!-- 產品與系統陣列 (精準對應微電網機櫃與無人機剖面照片) -->
+    <!-- 產品與系統陣列 (大尺寸圖片，不裁切原圖) -->
     <section id="products" class="py-24 bg-zinc-950/50 border-t border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -281,15 +263,10 @@
             </div>
 
             <div class="space-y-16">
-                <!-- 產品 1: 戶外型氫能發電與微電網機櫃 (對應 hydrogen-microgrid-cabinet.jpg) -->
-                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
-                    <div class="relative h-72 lg:h-auto overflow-hidden bg-zinc-900">
-                        <img src="hydrogen-microgrid-cabinet.jpg" alt="戶外氫能微電網發電機櫃" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 left-6 flex space-x-2">
-                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-[#00e65b] border border-[#00e65b]/30">10kW - 80kW</span>
-                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-zinc-200 border border-zinc-700">戶外防爆機櫃</span>
-                        </div>
+                <!-- 產品 1: 戶外型氫能發電與微電網機櫃 (hydrogen-microgrid-cabinet.jpg) -->
+                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green items-center">
+                    <div class="relative h-80 lg:h-96 bg-black p-4 flex items-center justify-center border-r border-zinc-800">
+                        <img src="hydrogen-microgrid-cabinet.jpg" alt="戶外型氫能發電與微電網機櫃" class="w-full h-full object-contain">
                     </div>
                     <div class="p-8 md:p-12 flex flex-col justify-center">
                         <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Stationary Power</div>
@@ -308,8 +285,8 @@
                     </div>
                 </div>
 
-                <!-- 產品 2: 重載多軸無人機氫動力模組 (對應 fixed-wing-uav-hydrogen-cutaway.webp) -->
-                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green">
+                <!-- 產品 2: 重載多軸無人機氫動力模組 (fixed-wing-uav-hydrogen-cutaway.webp) -->
+                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/40 transition duration-500 shadow-2xl led-strip-green items-center">
                     <div class="p-8 md:p-12 flex flex-col justify-center lg:order-1 order-2">
                         <div class="text-xs font-brand tracking-[0.2em] text-[#00e65b] uppercase mb-2">Aerospace &amp; Mobility</div>
                         <h3 class="text-2xl md:text-3xl font-black mb-4">重載多軸無人機氫動力模組</h3>
@@ -325,19 +302,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="relative h-72 lg:h-auto overflow-hidden bg-zinc-900 lg:order-2 order-1">
-                        <img src="fixed-wing-uav-hydrogen-cutaway.webp" alt="重載無人機氫動力剖面透視" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-l from-black/80 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 right-6 flex space-x-2">
-                            <span class="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-[#00e65b] border border-[#00e65b]/30">氣瓶與燃料電池整合剖面</span>
-                        </div>
+                    <div class="relative h-80 lg:h-96 bg-black p-4 flex items-center justify-center border-l border-zinc-800 lg:order-2 order-1">
+                        <img src="fixed-wing-uav-hydrogen-cutaway.webp" alt="重載無人機氫動力剖面透視" class="w-full h-full object-contain">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 應用場景與產業 (精準對應內部細節、控制室、維修與飛行實景) -->
+    <!-- 應用場景與產業 (大圖展示，完整不裁切) -->
     <section id="applications" class="py-24 border-t border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -346,60 +319,70 @@
                 <p class="text-zinc-400">從內部動力測試到地面站即時監控與山區飛行巡檢，提供全方位實戰見證。</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- 應用 1: 內部氫能源與燃料電池細節 -->
-                <div class="group relative rounded-3xl overflow-hidden aspect-[16/10] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
-                    <img src="uav-fuelcell-detail.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="內部氫燃料電池與管線細節">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-[10px] font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Power Module</span>
-                        <h4 class="text-lg font-bold text-white">內部氫燃料電池與管線細節</h4>
-                        <p class="text-xs text-zinc-300 mt-1">高壓碳纖維氣瓶與精密管線佈局，確保高效且安全的氫能轉換。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 1. 內部氫能源與燃料電池細節 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="uav-fuelcell-detail.webp" alt="內部氫燃料電池與管線細節" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Power Module</span>
+                        <h4 class="text-xl font-bold text-white mb-2">內部氫燃料電池與管線細節</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed">高壓碳纖維氣瓶與精密管線佈局，確保高效且安全的氫能轉換。</p>
                     </div>
                 </div>
 
-                <!-- 應用 2: 動力系統測試平台 -->
-                <div class="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
-                    <img src="hydrogen-powertrain-testbench.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="動力系統測試平台">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-[10px] font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Testbench Validation</span>
-                        <h4 class="text-lg font-bold text-white">氫能動力測試平台</h4>
-                        <p class="text-xs text-zinc-300 mt-1">嚴格的負載與壓力測試，確保系統在極端環境下穩定輸出。</p>
+                <!-- 2. 動力系統測試平台 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="hydrogen-powertrain-testbench.webp" alt="氫能動力測試平台" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Testbench Validation</span>
+                        <h4 class="text-xl font-bold text-white mb-2">氫能動力測試平台</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed">嚴格的負載與壓力測試，確保系統在極端環境下穩定輸出。</p>
                     </div>
                 </div>
 
-                <!-- 應用 3: 地面控制室與數據監控 -->
-                <div class="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
-                    <img src="uav-control-room.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="地面控制室">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-[10px] font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Ground Control Station</span>
-                        <h4 class="text-lg font-bold text-white">地面控制室與遙測監控</h4>
-                        <p class="text-xs text-zinc-300 mt-1">透過 CAN Bus 與無線遙測，即時掌握飛行狀態與能源數據。</p>
+                <!-- 3. 地面控制室與數據監控 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="uav-control-room.webp" alt="地面控制室與遙測監控" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Ground Control Station</span>
+                        <h4 class="text-xl font-bold text-white mb-2">地面控制室與遙測監控</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed">透過 CAN Bus 與無線遙測，即時掌握飛行狀態與能源數據。</p>
                     </div>
                 </div>
 
-                <!-- 應用 4: 機棚外實機檢修維護 -->
-                <div class="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
-                    <img src="uav-field-maintenance.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="機棚實機檢修">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-[10px] font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Field Maintenance</span>
-                        <h4 class="text-lg font-bold text-white">機棚外實機檢修維護</h4>
-                        <p class="text-xs text-zinc-300 mt-1">模組化設計便於快速檢修與燃料補給，提升任務執行效率。</p>
+                <!-- 4. 機棚外實機檢修維護 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="uav-field-maintenance.webp" alt="機棚外實機檢修維護" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Field Maintenance</span>
+                        <h4 class="text-xl font-bold text-white mb-2">機棚外實機檢修維護</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed">模組化設計便於快速檢修與燃料補給，提升任務執行效率。</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- 應用 5: 山區巡檢飛行實景 -->
-                <div class="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-zinc-800 hover:border-[#00e65b]/50 transition bg-zinc-900">
-                    <img src="uav-flight-secondary.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="山區巡檢飛行實景">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-[10px] font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Aerial Patrol</span>
-                        <h4 class="text-lg font-bold text-white">山區長航時巡檢實景</h4>
-                        <p class="text-xs text-zinc-300 mt-1">發揮氫能高能量密度優勢，執行大範圍複雜地形任務。</p>
+            <!-- 5. 滿版大圖：山區巡檢飛行實景 -->
+            <div class="mt-8 glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition">
+                <div class="h-96 lg:h-[500px] bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                    <img src="uav-flight-secondary.webp" alt="山區長航時巡檢實景" class="w-full h-full object-contain">
+                </div>
+                <div class="p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <span class="text-xs font-brand uppercase tracking-widest text-[#00e65b] block mb-1">Aerial Patrol</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">山區長航時巡檢實景</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed max-w-2xl">發揮氫能高能量密度優勢，執行大範圍複雜地形任務，突破傳統鋰電池續航瓶頸。</p>
                     </div>
+                    <a href="#contact" class="mt-6 md:mt-0 px-6 py-3 font-bold text-black bg-[#00e65b] hover:bg-emerald-400 rounded-xl transition">
+                        預約飛行展演
+                    </a>
                 </div>
             </div>
         </div>
