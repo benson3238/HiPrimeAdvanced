@@ -83,7 +83,7 @@
     <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
     <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
 
-    <!-- 導覽列 (字體加大) -->
+    <!-- 導覽列 -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-zinc-800 shadow-2xl">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="#" class="flex flex-col group">
@@ -113,16 +113,13 @@
 
             <nav class="hidden lg:flex space-x-8 text-lg font-bold text-zinc-200">
                 <a href="#brand-concept" class="hover:text-[#00e65b] transition duration-300">品牌核心</a>
-                <a href="#products" class="hover:text-[#00e65b] transition duration-300">核心產品線</a>
+                <a href="#products" class="hover:text-[#00e65b] transition duration-300">系統陣列</a>
                 <a href="#applications" class="hover:text-[#00e65b] transition duration-300">研發與應用</a>
                 <a href="#news" class="hover:text-[#00e65b] transition duration-300">實績動態</a>
                 <a href="#contact" class="hover:text-[#00e65b] transition duration-300">聯絡我們</a>
             </nav>
 
             <div class="flex items-center space-x-4">
-                <a href="tel:+88662316589" class="hidden xl:flex items-center text-base font-bold text-zinc-200 hover:text-[#00e65b] border-r border-zinc-700 pr-5">
-                    <i class="fa-solid fa-phone text-[#00e65b] mr-2"></i> 06-2316589
-                </a>
                 <a href="#contact" class="px-6 py-3 text-base md:text-lg font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
                     立即洽詢
                 </a>
@@ -158,7 +155,6 @@
                 </div>
             </div>
             
-            <!-- 右側：飛行中的重載無人機 (fixed-wing-uav-flight.webp) -->
             <div class="lg:col-span-5 relative">
                 <div class="glass-panel p-6 md:p-8 rounded-3xl border border-zinc-700 shadow-2xl relative overflow-hidden led-strip-green">
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-zinc-800">
@@ -280,7 +276,7 @@
             </div>
 
             <div class="space-y-16">
-                <!-- 產品 1: PEMFC 氫能不斷電系統與發電機組 -->
+                <!-- 產品 1: PEMFC 氫能發電機組 -->
                 <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/50 transition duration-500 shadow-2xl led-strip-green items-center">
                     <div class="relative h-80 lg:h-[420px] bg-black p-4 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-zinc-800">
                         <img src="hydrogen-microgrid-cabinet.webp" alt="戶外型氫能發電與微電網機櫃" class="w-full h-full object-contain">
@@ -302,7 +298,7 @@
                         </ul>
                         <div>
                             <a href="#contact" class="inline-flex items-center text-lg font-bold text-[#00e65b] hover:text-emerald-300">
-                                索取 3kW / 80kW / 500kW 規格書與報價 <i class="fa-solid fa-arrow-right ml-2"></i>
+                                索取規格書與報價 <i class="fa-solid fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -383,7 +379,7 @@
         </div>
     </section>
 
-    <!-- 應用場景與產業 (大尺寸展示，完整呈現所有資料夾內照片) -->
+    <!-- 應用場景與產業 -->
     <section id="applications" class="py-24 border-t border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-4xl mx-auto mb-16">
@@ -495,6 +491,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- 新聞 1 -->
                 <div class="glass-panel p-8 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between">
                     <div>
                         <div class="inline-flex items-center px-3.5 py-1 rounded-lg bg-[#00e65b]/15 text-[#00e65b] font-brand font-bold text-base mb-4">
@@ -510,6 +507,7 @@
                     </div>
                 </div>
 
+                <!-- 新聞 2 -->
                 <div class="glass-panel p-8 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between">
                     <div>
                         <div class="inline-flex items-center px-3.5 py-1 rounded-lg bg-[#00e65b]/15 text-[#00e65b] font-brand font-bold text-base mb-4">
@@ -517,7 +515,7 @@
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-4 leading-snug">全台首創！首台氫能多軸無人機成功完成首飛測試</h3>
                         <p class="text-lg text-zinc-300 leading-relaxed">
-                            技術重大突破！由團隊自主研發整合的氫能多軸旋翼無人機成功完成實機試飛，獲得工商時報等主流媒體專題報導，大幅突破傳統無人機續航力限制，開創商用巡檢無限可能。
+                            技術重大突破！由團隊自主研發整合的氫能多軸旋翼無人機成功完成實機試飛，獲得主流媒體專題報導，大幅突破傳統無人機續航力限制，開創商用巡檢無限可能。
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-zinc-800">
@@ -527,6 +525,7 @@
                     </div>
                 </div>
 
+                <!-- 新聞 3 -->
                 <div class="glass-panel p-8 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between">
                     <div>
                         <div class="inline-flex items-center px-3.5 py-1 rounded-lg bg-[#00e65b]/15 text-[#00e65b] font-brand font-bold text-base mb-4">
@@ -545,16 +544,17 @@
         </div>
     </section>
 
-    <!-- 聯絡我們 -->
+    <!-- 聯絡我們 (已移除電話、傳真、實體地址與私人信箱) -->
     <section id="contact" class="py-24 bg-zinc-950 border-t border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-[#00e65b] font-brand font-bold text-base uppercase tracking-[0.25em] mb-2 block">Contact Us</span>
                 <h2 class="text-3xl md:text-5xl font-black mb-5">與崇瀚動力工程團隊聯繫</h2>
-                <p class="text-xl text-zinc-300">歡迎直接掃描 LINE 行動條碼、撥打專線或填寫下方表單，我們將由專人為您服務。</p>
+                <p class="text-xl text-zinc-300">歡迎直接掃描 LINE 行動條碼，或填寫下方表單，我們將由專人為您服務。</p>
             </div>
 
             <div class="grid lg:grid-cols-5 gap-10 items-start">
+                <!-- 左側：LINE QR Code 與公司基本資訊 -->
                 <div class="lg:col-span-2 space-y-8">
                     <div class="glass-panel p-8 rounded-3xl text-center border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500">
                         <div class="w-16 h-16 mx-auto bg-[#06C755]/15 rounded-2xl flex items-center justify-center mb-4 border border-[#06C755]/40">
@@ -575,7 +575,7 @@
                     </div>
 
                     <div class="glass-panel p-8 rounded-3xl border border-zinc-800">
-                        <h4 class="text-xl font-bold text-white mb-6 pb-3 border-b border-zinc-800">公司聯絡資訊</h4>
+                        <h4 class="text-xl font-bold text-white mb-6 pb-3 border-b border-zinc-800">聯絡資訊</h4>
                         <ul class="space-y-6 text-zinc-200 text-lg">
                             <li class="flex items-start">
                                 <i class="fa-solid fa-building text-[#00e65b] mt-1.5 mr-4 text-xl w-6 text-center"></i>
@@ -588,51 +588,37 @@
                                 <i class="fa-solid fa-phone text-[#00e65b] mr-4 text-xl w-6 text-center"></i>
                                 <div>
                                     <span class="text-zinc-400 text-base block">聯絡電話 (TEL)</span>
-                                    <a href="tel:+88662316589" class="text-xl font-bold text-white hover:text-[#00e65b] transition">+886-6-2316589</a>
+                                    <span class="text-xl font-bold text-white">即將公佈 (Updating)</span>
                                 </div>
                             </li>
                             <li class="flex items-center">
                                 <i class="fa-solid fa-fax text-[#00e65b] mr-4 text-xl w-6 text-center"></i>
                                 <div>
                                     <span class="text-zinc-400 text-base block">傳真號碼 (FAX)</span>
-                                    <span class="text-xl font-semibold text-white">+886-6-2316758</span>
+                                    <span class="text-xl font-semibold text-white">即將公佈 (Updating)</span>
                                 </div>
                             </li>
                             <li class="flex items-center">
                                 <i class="fa-solid fa-envelope text-[#00e65b] mr-4 text-xl w-6 text-center"></i>
                                 <div>
-                                    <span class="text-zinc-400 text-base block">電子信箱 (Email)</span>
+                                    <span class="text-zinc-400 text-base block">企業信箱 (Email)</span>
                                     <a href="mailto:service@cnxpwr.com" class="text-lg font-semibold text-white hover:text-[#00e65b] block transition">service@cnxpwr.com</a>
-                                    <a href="mailto:benson3238@gmail.com" class="text-base text-zinc-300 hover:text-[#00e65b] block transition">benson3238@gmail.com</a>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-location-dot text-[#00e65b] mt-1.5 mr-4 text-xl w-6 text-center"></i>
                                 <div>
-                                    <span class="text-zinc-400 text-base block">公司地址 (Address)</span>
-                                    <a href="https://maps.app.goo.gl/sUKq6x1FqQy9SvEN7" target="_blank" rel="noopener" class="text-lg font-semibold text-white hover:text-[#00e65b] transition underline decoration-zinc-600 underline-offset-4">
-                                        台南市永康區中正二街586號 <i class="fa-solid fa-location-arrow text-sm ml-1 text-[#00e65b]"></i>
-                                    </a>
+                                    <span class="text-zinc-400 text-base block">新廠辦地址 (Address)</span>
+                                    <span class="text-lg font-semibold text-white">即將公佈 (Updating)</span>
                                 </div>
                             </li>
                         </ul>
-
-                        <div class="mt-8 pt-6 border-t border-zinc-800 flex items-center justify-between">
-                            <span class="text-base text-zinc-400 font-medium">關注社群動態：</span>
-                            <div class="flex space-x-4">
-                                <a href="https://www.facebook.com/worldwideLLC" target="_blank" rel="noopener" class="w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-700 flex items-center justify-center text-xl text-white hover:border-[#00e65b] hover:text-[#00e65b] transition" title="前往 Facebook 粉絲專頁">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                                <a href="https://line.me/ti/p/eM1nKwsBaR" target="_blank" rel="noopener" class="w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-700 flex items-center justify-center text-xl text-white hover:border-[#06C755] hover:text-[#06C755] transition" title="加入 LINE 好友">
-                                    <i class="fa-brands fa-line"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
+                <!-- 右側：聯絡表單 (移除真實 Email 收件目標) -->
                 <div class="lg:col-span-3">
-                    <form action="mailto:benson3238@gmail.com" method="POST" enctype="text/plain" class="space-y-6 glass-panel p-8 md:p-12 rounded-3xl border border-zinc-800">
+                    <form action="#" method="POST" class="space-y-6 glass-panel p-8 md:p-12 rounded-3xl border border-zinc-800">
                         <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">線上專案詢價與技術諮詢</h3>
                         <p class="text-lg text-zinc-300 mb-6">請填寫您的需求，我們將於收到訊息後儘速與您聯繫。</p>
 
