@@ -119,8 +119,19 @@
                 <a href="#contact" class="hover:text-[#00e65b] transition duration-300">聯絡我們</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
-                <a href="#contact" class="px-6 py-3 text-base md:text-lg font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
+            <div class="flex items-center space-x-3 md:space-x-5">
+                <!-- 語系切換 (直接點擊版) -->
+                <div class="flex items-center space-x-2 text-sm md:text-base font-bold font-brand tracking-wider">
+                    <i class="fa-solid fa-globe text-zinc-500 mr-1 hidden sm:inline"></i>
+                    <a href="/" class="text-[#00e65b] hover:brightness-110 transition drop-shadow-[0_0_8px_rgba(0,230,91,0.3)]">TW</a>
+                    <span class="text-zinc-700">|</span>
+                    <a href="/en/" class="text-zinc-400 hover:text-white transition">EN</a>
+                    <span class="text-zinc-700">|</span>
+                    <a href="/jp/" class="text-zinc-400 hover:text-white transition">JP</a>
+                </div>
+
+                <!-- 聯絡資訊按鈕 -->
+                <a href="#contact" class="px-5 py-2.5 md:px-6 md:py-3 text-base md:text-lg font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
                     聯絡資訊
                 </a>
             </div>
@@ -537,7 +548,7 @@
         </div>
     </section>
 
-    <!-- 聯絡我們 (已移除表單區塊，置中優化版面) -->
+    <!-- 聯絡我們 (移除表單，改為純資訊與 LINE 導向) -->
     <section id="contact" class="py-24 bg-zinc-950 border-t border-zinc-900 relative z-10">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-16">

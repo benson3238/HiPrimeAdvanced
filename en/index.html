@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHONEX POWER SYSTEMS | Hydrogen Generators, UAV Powertrains, Seal-less Motors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #07090a;
+            font-size: 18px;
+        }
+        .font-brand {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* 滿電電池 O 核心樣式 */
+        .chonex-o {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 26%;
+            background: linear-gradient(145deg, #3a3f44, #16191c);
+            padding: 3px;
+            box-shadow: 0 0 15px rgba(0, 230, 91, 0.25), inset 0 1px 2px rgba(255,255,255,0.3);
+        }
+        .chonex-o-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 20%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .chonex-o-green {
+            height: 72%;
+            background: linear-gradient(180deg, #34d399 0%, #00e65b 50%, #047857 100%);
+            box-shadow: inset 0 0 8px rgba(255,255,255,0.4);
+        }
+        .chonex-o-divider {
+            height: 4%;
+            background: #ffffff;
+            box-shadow: 0 0 6px #ffffff;
+            z-index: 2;
+        }
+        .chonex-o-red {
+            height: 24%;
+            background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
+        }
+        .led-strip-green {
+            position: relative;
+        }
+        .led-strip-green::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12%;
+            bottom: 12%;
+            width: 4px;
+            background: linear-gradient(180deg, transparent, #00e65b, #ffffff, #00e65b, transparent);
+            box-shadow: 0 0 12px #00e65b, 0 0 24px #00e65b;
+            border-radius: 4px;
+        }
+        .glass-panel {
+            background: rgba(15, 19, 22, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.18; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.06); }
+        }
+        .animate-glow { animation: pulseGlow 7s ease-in-out infinite; }
+    </style>
+</head>
+<body class="text-zinc-100 antialiased selection:bg-[#00e65b] selection:text-black overflow-x-hidden leading-relaxed">
+
+    <!-- 背景環境光暈 -->
+    <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
+    <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
+
+    <!-- 導覽列 -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-zinc-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="flex flex-col group">
+                <div class="flex items-center font-brand font-black text-3xl md:text-4xl tracking-wider text-white">
+                    <span>CH</span>
+                    <span class="chonex-o w-8 h-8 md:w-9 md:h-9 mx-1 group-hover:scale-105 transition duration-300">
+                        <span class="chonex-o-inner">
+                            <span class="chonex-o-green"></span>
+                            <span class="chonex-o-divider"></span>
+                            <span class="chonex-o-red"></span>
+                        </span>
+                    </span>
+                    <span>N</span>
+                    <span class="inline-flex flex-col justify-between h-6 md:h-7 w-5 md:w-6 mx-1 py-0.5">
+                        <span class="h-1 bg-white w-full rounded-sm"></span>
+                        <span class="h-1 bg-white w-full rounded-sm"></span>
+                        <span class="h-1 bg-white w-full rounded-sm"></span>
+                    </span>
+                    <span class="relative inline-block bg-clip-text text-transparent bg-gradient-to-tr from-white via-white to-[#00e65b] drop-shadow-[0_0_8px_rgba(0,230,91,0.4)]">X</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs md:text-sm tracking-[0.2em] text-zinc-300 font-brand font-bold mt-1">
+                    <span>POWER SYSTEMS</span>
+                    <span class="text-[#00e65b]">|</span>
+                    <span class="text-white tracking-widest font-sans">CHONEX</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex space-x-8 text-lg font-bold text-zinc-200">
+                <a href="#brand-concept" class="hover:text-[#00e65b] transition duration-300">Brand Core</a>
+                <a href="#products" class="hover:text-[#00e65b] transition duration-300">Products</a>
+                <a href="#applications" class="hover:text-[#00e65b] transition duration-300">R&amp;D &amp; Apps</a>
+                <a href="#news" class="hover:text-[#00e65b] transition duration-300">Milestones</a>
+                <a href="#contact" class="hover:text-[#00e65b] transition duration-300">Contact Us</a>
+            </nav>
+
+            <div class="flex items-center space-x-3 md:space-x-5">
+                <!-- 語系切換 (EN 版高亮) -->
+                <div class="flex items-center space-x-2 text-sm md:text-base font-bold font-brand tracking-wider">
+                    <i class="fa-solid fa-globe text-zinc-500 mr-1 hidden sm:inline"></i>
+                    <a href="/" class="text-zinc-400 hover:text-white transition">TW</a>
+                    <span class="text-zinc-700">|</span>
+                    <a href="/en/" class="text-[#00e65b] hover:brightness-110 transition drop-shadow-[0_0_8px_rgba(0,230,91,0.3)]">EN</a>
+                    <span class="text-zinc-700">|</span>
+                    <a href="/jp/" class="text-zinc-400 hover:text-white transition">JP</a>
+                </div>
+
+                <a href="#contact" class="px-5 py-2.5 md:px-6 md:py-3 text-base md:text-lg font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主視覺 Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-28 z-10">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <div class="inline-flex items-center px-4 py-2 rounded-full text-sm md:text-base font-brand font-bold tracking-[0.15em] uppercase bg-zinc-900 text-[#00e65b] border border-[#00e65b]/40 mb-6 shadow-[0_0_15px_rgba(0,230,91,0.15)]">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#00e65b] mr-3 animate-ping"></span>
+                    Powering A Cleaner Stronger Tomorrow
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-6 leading-[1.2]">
+                    Driven by Battery Energy Core <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00e65b] to-emerald-400">Fully Charged</span> for a Clean Future
+                </h1>
+                <p class="text-xl md:text-2xl text-zinc-200 mb-6 leading-relaxed font-medium">
+                    CHONEX Power Systems integrates the brand spirit of "<span class="text-white font-bold">Fully Charged / Stable / Reliable</span>" into comprehensive hydrogen energy systems.
+                </p>
+                <p class="text-lg md:text-xl text-zinc-300 mb-10 leading-relaxed">
+                    We deliver advanced solutions ranging from <strong class="text-white">3kW ~ 500kW PEMFC Hydrogen UPS Systems</strong>, <strong class="text-white">Hydrogen Multi-rotor &amp; Fixed-wing UAV Powertrains (HPU)</strong>, <strong class="text-white">Patented Seal-less Motors</strong>, to integrated microgrid systems for hydrogen production, storage, and supply.
+                </p>
+                <div class="flex flex-wrap gap-5 items-center">
+                    <a href="#products" class="px-8 py-4 text-lg md:text-xl font-bold text-black bg-[#00e65b] hover:bg-emerald-400 rounded-xl transition shadow-[0_0_25px_rgba(0,230,91,0.35)] flex items-center">
+                        Explore Products <i class="fa-solid fa-bolt ml-2.5"></i>
+                    </a>
+                    <a href="https://line.me/ti/p/eM1nKwsBaR" target="_blank" rel="noopener" class="px-8 py-4 text-lg md:text-xl font-bold text-white bg-[#06C755]/20 hover:bg-[#06C755]/30 border border-[#06C755] rounded-xl transition flex items-center">
+                        <i class="fa-brands fa-line text-2xl text-[#06C755] mr-2.5"></i> Connect on LINE
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-5 relative">
+                <div class="glass-panel p-6 md:p-8 rounded-3xl border border-zinc-700 shadow-2xl relative overflow-hidden led-strip-green">
+                    <div class="flex flex-wrap items-center justify-between gap-y-3 gap-x-2 mb-4 pb-4 border-b border-zinc-800">
+                        <div>
+                            <span class="text-sm font-brand tracking-[0.2em] text-[#00e65b] uppercase block font-bold mb-1">Flight Operation</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">CHONEX Hydrogen UAV System</h3>
+                        </div>
+                        <span class="shrink-0 px-3.5 py-1.5 rounded-full text-sm font-bold bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40">
+                            ● Zero Emission (Pure Water)
+                        </span>
+                    </div>
+
+                    <div class="relative rounded-2xl overflow-hidden h-72 md:h-80 bg-black border border-zinc-700 flex items-center justify-center mb-5">
+                        <img src="../fixed-wing-uav-flight.webp" alt="Heavy-duty UAV in flight" class="w-full h-full object-contain">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-center bg-zinc-900/90 p-4 rounded-2xl border border-zinc-800">
+                        <div>
+                            <p class="text-sm text-zinc-400 font-medium">Power Output Range</p>
+                            <p class="text-xl md:text-2xl font-black text-[#00e65b]">3kW - 500kW</p>
+                        </div>
+                        <div class="border-l border-zinc-800">
+                            <p class="text-sm text-zinc-400 font-medium">UAV Endurance Gain</p>
+                            <p class="text-xl md:text-2xl font-black text-white">&gt; 3x Longer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關鍵數據與三大產業價值 -->
+    <section class="border-y border-zinc-800 bg-zinc-950/80 backdrop-blur-md relative z-10">
+        <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
+            <div class="pt-6 md:pt-0 md:px-6 first:pl-0">
+                <div class="flex items-baseline space-x-3 mb-3">
+                    <span class="text-3xl font-brand font-black text-[#00e65b]">01</span>
+                    <h3 class="text-2xl font-bold text-white">Brand Spirit | Professional &amp; Reliable</h3>
+                </div>
+                <p class="text-lg text-zinc-300 leading-relaxed">Built on deep system integration and hydrogen R&amp;D expertise, using the fully charged battery core identity to project a professional, dependable, and world-class brand image.</p>
+            </div>
+            <div class="pt-6 md:pt-0 md:px-6">
+                <div class="flex items-baseline space-x-3 mb-3">
+                    <span class="text-3xl font-brand font-black text-[#00e65b]">02</span>
+                    <h3 class="text-2xl font-bold text-white">Full Portfolio | Premium Quality</h3>
+                </div>
+                <p class="text-lg text-zinc-300 leading-relaxed">Covering 3kW-500kW hydrogen generators, UAV HPU powertrains, and patented seal-less motors, featuring rapid low-temp startup and ultra-low harmonic distortion (&lt;5% THD).</p>
+            </div>
+            <div class="pt-6 md:pt-0 md:px-6">
+                <div class="flex items-baseline space-x-3 mb-3">
+                    <span class="text-3xl font-brand font-black text-[#00e65b]">03</span>
+                    <h3 class="text-2xl font-bold text-white">Turnkey Supply | Fully Powered</h3>
+                </div>
+                <p class="text-lg text-zinc-300 leading-relaxed">Providing end-to-end services from green water-electrolysis hydrogen production, high-pressure storage, to gas supply generation. Emits pure water only, driving industrial decarbonization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌設計概念解析 -->
+    <section id="brand-concept" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-[#00e65b] font-brand font-bold text-base uppercase tracking-[0.25em] mb-2 block">Brand Identity</span>
+                    <h2 class="text-3xl md:text-5xl font-black">CHONEX Core Language</h2>
+                </div>
+                <p class="text-zinc-300 text-base md:text-lg font-brand tracking-widest uppercase mt-4 md:mt-0 font-semibold">
+                    Power • People • Progress
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col sm:flex-row items-center sm:items-start gap-8 group">
+                    <div class="chonex-o w-28 h-28 shrink-0 group-hover:scale-105 transition duration-500 shadow-[0_0_30px_rgba(0,230,91,0.2)]">
+                        <div class="chonex-o-inner">
+                            <div class="chonex-o-green"></div>
+                            <div class="chonex-o-divider"></div>
+                            <div class="chonex-o-red"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inline-block px-3.5 py-1 rounded-md bg-zinc-900 border border-zinc-700 text-sm font-brand text-zinc-200 mb-3 font-bold">
+                            CORE ELEMENT 01
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black text-white mb-2">O = Battery Energy Core</h3>
+                        <p class="text-[#00e65b] font-bold text-lg mb-4">Fully Charged State ‧ Stable Power</p>
+                        <p class="text-zinc-200 text-lg leading-relaxed">
+                            Centered around battery energy, the <span class="text-[#00e65b] font-bold">upper green section</span> symbolizes full charge and high-efficiency conversion, while the <span class="text-red-400 font-bold">lower red section</span> acts as a solid base, conveying the stable, safe, and reliable foundation of CHONEX PEMFC fuel cells and high-pressure storage systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col sm:flex-row items-center sm:items-start gap-8 group">
+                    <div class="w-28 h-28 shrink-0 rounded-3xl bg-zinc-900 border border-zinc-700 flex items-center justify-center group-hover:scale-105 transition duration-500 shadow-[0_0_30px_rgba(0,230,91,0.15)]">
+                        <span class="font-brand font-black text-7xl bg-clip-text text-transparent bg-gradient-to-tr from-zinc-400 via-white to-[#00e65b] drop-shadow-[0_0_15px_rgba(0,230,91,0.5)]">X</span>
+                    </div>
+                    <div>
+                        <div class="inline-block px-3.5 py-1 rounded-md bg-zinc-900 border border-zinc-700 text-sm font-brand text-zinc-200 mb-3 font-bold">
+                            CORE ELEMENT 02
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black text-white mb-2">X = Energy Output</h3>
+                        <p class="text-[#00e65b] font-bold text-lg mb-4">Conversion ‧ Output ‧ Drive</p>
+                        <p class="text-zinc-200 text-lg leading-relaxed">
+                            X represents high-efficiency energy conversion and precise output, symbolizing how CHONEX integrates top-tier fuel cells, patented seal-less motors, and smart microgrid control to turn hydrogen into cleaner, more powerful propulsion for the future.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 產品與系統陣列 -->
+    <section id="products" class="py-24 bg-zinc-950/60 border-t border-zinc-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <span class="text-[#00e65b] font-brand font-bold text-base uppercase tracking-[0.25em] mb-2 block">Product Lineup</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-5">Core Hydrogen Systems &amp; Products</h2>
+                <p class="text-xl text-zinc-300">Providing complete solutions from core generation modules and UAV powertrains to patented seal-less motors and hydrogen supply infrastructure.</p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- 產品 1: PEMFC 氫能發電機組 -->
+                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/50 transition duration-500 shadow-2xl led-strip-green items-center">
+                    <div class="relative h-80 lg:h-[420px] bg-black p-4 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-zinc-800">
+                        <img src="../hydrogen-microgrid-cabinet.webp" alt="Outdoor Hydrogen Generator &amp; Microgrid Cabinet" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3.5 py-1 bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40 rounded-lg text-base font-bold">3kW Portable</span>
+                            <span class="px-3.5 py-1 bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40 rounded-lg text-base font-bold">80kW Industrial</span>
+                            <span class="px-3.5 py-1 bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40 rounded-lg text-base font-bold">500kW Microgrid</span>
+                        </div>
+                        <h3 class="text-2xl md:text-4xl font-black mb-4 text-white whitespace-nowrap">PEMFC Hydrogen Generators &amp; UPS</h3>
+                        <p class="text-zinc-200 text-lg md:text-xl mb-6 leading-relaxed">
+                            Featuring <strong>rapid low-temperature startup, high power density, and compact size</strong>. Emits pure water only during operation, combining zero-carbon, silent, and high-efficiency operation. Seamlessly integrates with BESS storage for stationary power and industrial microgrids.
+                        </p>
+                        <ul class="space-y-3.5 text-lg text-zinc-200 font-medium mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-[#00e65b] mr-3 text-xl"></i> Customizable power modules: Supporting 3kW / 80kW / 500kW configurations</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-[#00e65b] mr-3 text-xl"></i> Superior power quality: Smart DC-DC conversion with ultra-low THD (&lt; 5%)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-red-500 mr-3 text-xl"></i> Industrial HMI remote monitoring, multi-gas detection, and hardware safety interlocks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 產品 2: 氫能無人機載具與動力單元 -->
+                <div class="glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-2 group hover:border-[#00e65b]/50 transition duration-500 shadow-2xl led-strip-green items-center">
+                    <div class="p-8 md:p-12 flex flex-col justify-center lg:order-1 order-2">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3.5 py-1 bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40 rounded-lg text-base font-bold">HPU Powertrain</span>
+                            <span class="px-3.5 py-1 bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40 rounded-lg text-base font-bold">Multi-rotor UAV</span>
+                            <span class="px-3.5 py-1 bg-[#00e65b]/15 text-[#00e65b] border border-[#00e65b]/40 rounded-lg text-base font-bold">Fixed-wing UAV</span>
+                        </div>
+                        <h3 class="text-2xl md:text-4xl font-black mb-4 text-white whitespace-nowrap">Hydrogen UAV Lightweight Powertrain</h3>
+                        <p class="text-zinc-200 text-lg md:text-xl mb-6 leading-relaxed">
+                            Designed specifically for industrial UAVs. Delivers <strong>extended endurance and rapid hydrogen refueling</strong>, emitting pure water silently. Successfully verified via <strong>Taiwan's first hydrogen multi-rotor maiden flight</strong>, making it the top green choice for long-range patrols.
+                        </p>
+                        <ul class="space-y-3.5 text-lg text-zinc-200 font-medium mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-[#00e65b] mr-3 text-xl"></i> [01] Lightweight PEMFC stack with high-efficiency thermal architecture</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-[#00e65b] mr-3 text-xl"></i> [02] Carbon-fiber high-pressure hydrogen tanks and precision pressure regulators</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-[#00e65b] mr-3 text-xl"></i> [03] Built-in CAN Bus (J1939) protocol and real-time wireless telemetry</li>
+                        </ul>
+                    </div>
+                    <div class="relative h-80 lg:h-[420px] bg-black p-4 flex items-center justify-center border-b lg:border-b-0 lg:border-l border-zinc-800 lg:order-2 order-1">
+                        <img src="../fixed-wing-uav-hydrogen-cutaway.webp" alt="Heavy-duty UAV hydrogen cutaway schematic" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 延伸兩大核心技術：無軸封馬達、氫能輸儲 -->
+            <div class="grid md:grid-cols-2 gap-8 mt-16">
+                <!-- 專利無軸封馬達 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between group">
+                    <div class="h-96 lg:h-[450px] bg-black flex items-center justify-center border-b border-zinc-800 overflow-hidden">
+                        <img src="../motor.jpg" alt="Patented seal-less motor on assembly line" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-8 md:p-10 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Patented Motor Series</span>
+                            <h4 class="text-2xl md:text-3xl font-black text-white mb-4">Patented Seal-less Motors</h4>
+                            <p class="text-lg text-zinc-300 leading-relaxed mb-6">
+                                Engineered specifically for unmanned vehicles. Features a proprietary seal-less structure that completely eliminates leaks at the source. Offers <strong>exceptional water, sand, and dust resistance</strong>, maintaining stable operation in harsh outdoor environments with high durability and minimal maintenance.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-zinc-800/80">
+                            <p class="text-base font-bold text-white mb-3">Core Specification Models:</p>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3.5 py-1.5 bg-zinc-900 border border-zinc-700 rounded-md text-base font-brand font-bold text-[#00e65b]">2810</span>
+                                <span class="px-3.5 py-1.5 bg-zinc-900 border border-zinc-700 rounded-md text-base font-brand font-bold text-[#00e65b]">2812</span>
+                                <span class="px-3.5 py-1.5 bg-zinc-900 border border-zinc-700 rounded-md text-base font-brand font-bold text-[#00e65b]">3115</span>
+                                <span class="px-3.5 py-1.5 bg-zinc-900 border border-zinc-700 rounded-md text-base font-brand font-bold text-[#00e65b]">4006</span>
+                                <span class="px-3.5 py-1.5 bg-zinc-900 border border-zinc-700 rounded-md text-base font-brand font-bold text-[#00e65b]">5008</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 全方位氫能輸儲 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between group">
+                    <div class="h-96 lg:h-[450px] bg-black flex items-center justify-center border-b border-zinc-800 overflow-hidden">
+                        <img src="../hydrogen-storage.jpg" alt="Hydrogen storage and supply infrastructure" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-8 md:p-10 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Storage &amp; Supply</span>
+                            <h4 class="text-2xl md:text-3xl font-black text-white mb-4">Hydrogen Storage &amp; Supply Solutions</h4>
+                            <p class="text-lg text-zinc-300 leading-relaxed mb-6">
+                                Integrated turnkey services linking <strong>green hydrogen production via water electrolysis, high-pressure storage, and secure gas supply</strong>. Zero-carbon manufacturing equipped with high-spec pressure reduction valves and explosion-proof piping to meet industrial and vehicle refueling demands.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-zinc-800/80">
+                            <span class="text-base md:text-lg font-bold text-[#00e65b] flex items-center">
+                                <i class="fa-solid fa-shield-halved mr-2"></i> High-Pressure Safety Storage ‧ Turnkey Gas Supply
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 應用場景與產業 -->
+    <section id="applications" class="py-24 border-t border-zinc-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <span class="text-[#00e65b] font-brand font-bold text-base uppercase tracking-[0.25em] mb-2 block">R&amp;D And Field Applications</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-5">R&amp;D Testing, Ground Control &amp; Chemical Plant Apps</h2>
+                <p class="text-xl text-zinc-300">From internal powertrain testing and ground station telemetry to chemical plant power generation and mountain patrols.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 1. 內部氫能源與燃料電池細節 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 md:h-96 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="../uav-fuelcell-detail.webp" alt="Internal hydrogen fuel cell and piping details" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Power Module</span>
+                        <h4 class="text-2xl font-bold text-white mb-3">Internal Fuel Cell &amp; Piping Details</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed">High-pressure carbon-fiber tanks and precision stainless steel piping layout ensure efficient and safe hydrogen pressure reduction and energy conversion.</p>
+                    </div>
+                </div>
+
+                <!-- 2. 動力系統測試平台 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 md:h-96 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="../hydrogen-powertrain-testbench.webp" alt="Hydrogen powertrain testbench" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Testbench Validation</span>
+                        <h4 class="text-2xl font-bold text-white mb-3">Hydrogen Powertrain Testbench</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed">Rigorously tested under dynamic load, thermal management, and pressure conditions prior to delivery to guarantee stable output in extreme environments.</p>
+                    </div>
+                </div>
+
+                <!-- 3. 無人機剖面細節 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 md:h-96 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="../uav-cutaway-detail.webp" alt="UAV cutaway structural details" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Structure Analysis</span>
+                        <h4 class="text-2xl font-bold text-white mb-3">UAV Structural Cutaway Analysis</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed">Carefully positioned high-pressure storage and fuel cell bays balance center-of-gravity, structural shock resistance, and ultimate lightweight design.</p>
+                    </div>
+                </div>
+
+                <!-- 4. 地面控制室與數據監控 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 md:h-96 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="../uav-control-room.webp" alt="Ground control station and telemetry" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Ground Control Station</span>
+                        <h4 class="text-2xl font-bold text-white mb-3">Ground Control &amp; Telemetry Station</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed">Real-time monitoring of stack temperature, tank pressure, and flight attitude via CAN Bus protocol and long-range wireless telemetry.</p>
+                    </div>
+                </div>
+
+                <!-- 5. 機棚外實機檢修維護 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 md:h-96 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="../uav-field-maintenance.webp" alt="Field maintenance outside hangar" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Field Maintenance</span>
+                        <h4 class="text-2xl font-bold text-white mb-3">Hangar-Side Field Maintenance</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed">Modular powertrain bays allow field engineers to quickly inspect systems and swap high-pressure hydrogen cylinders, dramatically reducing turnaround time.</p>
+                    </div>
+                </div>
+
+                <!-- 6. 化工廠區供電 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col">
+                    <div class="h-80 md:h-96 bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                        <img src="../hydrogen-microgrid-cabinet.webp" alt="Chemical plant hydrogen power generation" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Chemical Plant Power</span>
+                        <h4 class="text-2xl font-bold text-white mb-3">Chemical Plant Hydrogen Microgrid</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed">Directly converts chemical plant byproduct hydrogen into stable clean electricity, providing high-explosion-safety outdoor industrial microgrids.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. 滿版大圖：山區巡檢飛行實景 -->
+            <div class="mt-10 glass-panel rounded-3xl overflow-hidden border border-zinc-800 hover:border-[#00e65b]/50 transition">
+                <div class="h-96 lg:h-[520px] bg-black p-4 flex items-center justify-center border-b border-zinc-800">
+                    <img src="../uav-flight-secondary.webp" alt="Mountain long-endurance patrol flight" class="w-full h-full object-contain">
+                </div>
+                <div class="p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div>
+                        <span class="text-sm font-brand font-bold uppercase tracking-widest text-[#00e65b] block mb-2">Aerial Patrol</span>
+                        <h4 class="text-2xl md:text-3xl font-bold text-white mb-2">Mountain &amp; Wide-Area Patrol Flights</h4>
+                        <p class="text-lg text-zinc-300 leading-relaxed max-w-3xl">Fully harnesses the high energy density of hydrogen fuel cells to conquer complex terrain and long-distance flights, breaking traditional lithium battery limitations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新消息與技術里程碑 -->
+    <section id="news" class="py-24 bg-zinc-950/60 border-t border-zinc-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#00e65b] font-brand font-bold text-base uppercase tracking-[0.25em] mb-2 block">Milestones &amp; News</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-5">Latest R&amp;D Breakthroughs &amp; Global Exchange</h2>
+                <p class="text-xl text-zinc-300">Continuously leading Taiwan's hydrogen vehicles and critical powertrain components onto the world stage.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 新聞 1 -->
+                <div class="glass-panel p-8 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center px-3.5 py-1 rounded-lg bg-[#00e65b]/15 text-[#00e65b] font-brand font-bold text-base mb-4">
+                            <i class="fa-regular fa-calendar mr-2"></i> 2026.05.13
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 leading-snug">President of Japan's REALIZE Corporation Visits CHONEX: Focusing on Hydrogen Technology &amp; Market Strategy</h3>
+                        <p class="text-lg text-zinc-300 leading-relaxed">
+                            We warmly welcomed the delegation led by the President of Japan's REALIZE Corporation! On-site live demonstrations featured hydrogen generators, hydrogen UAVs, and patented seal-less motors, deeply exploring future bilateral cooperation in clean energy.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-zinc-800 text-base font-bold text-[#00e65b]">
+                        International Collaboration ‧ Taiwan-Japan Hydrogen Alliance
+                    </div>
+                </div>
+
+                <!-- 新聞 2 -->
+                <div class="glass-panel p-8 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center px-3.5 py-1 rounded-lg bg-[#00e65b]/15 text-[#00e65b] font-brand font-bold text-base mb-4">
+                            <i class="fa-regular fa-calendar mr-2"></i> 2026.03.12
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 leading-snug">Taiwan First! Inaugural Hydrogen Multi-rotor UAV Successfully Completes Maiden Flight</h3>
+                        <p class="text-lg text-zinc-300 leading-relaxed">
+                            A major technological breakthrough! Our independently developed and integrated hydrogen multi-rotor UAV successfully completed test flights, garnering major media coverage and dramatically lifting traditional drone flight limits.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-zinc-800">
+                        <a href="https://www.ctee.com.tw/news/20260312701411-431202" target="_blank" rel="noopener" class="text-base font-bold text-[#00e65b] hover:underline flex items-center">
+                            Read Media Coverage <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 新聞 3 -->
+                <div class="glass-panel p-8 rounded-3xl border border-zinc-800 hover:border-[#00e65b]/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center px-3.5 py-1 rounded-lg bg-[#00e65b]/15 text-[#00e65b] font-brand font-bold text-base mb-4">
+                            <i class="fa-regular fa-calendar mr-2"></i> 2026.02.18
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 leading-snug">Tech Milestone: Patented Seal-less Motor Shines at Kyoto Exhibition in Japan</h3>
+                        <p class="text-lg text-zinc-300 leading-relaxed">
+                            Our independently engineered patented seal-less motors exhibit superior water, sand, and dust resistance, successfully demonstrating live dynamic operation at the Kyoto Exhibition in Japan, showcasing Taiwanese craftsmanship to global buyers.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-zinc-800 text-base font-bold text-[#00e65b]">
+                        Overseas Exhibition ‧ Patented Dustproof &amp; Waterproof Tech
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" class="py-24 bg-zinc-950 border-t border-zinc-900 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#00e65b] font-brand font-bold text-base uppercase tracking-[0.25em] mb-2 block">Contact Us</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-5">Get in Touch with CHONEX Engineering</h2>
+                <p class="text-xl text-zinc-300">Scan our official LINE QR code or reach out via email for technical specifications and partnership opportunities.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <!-- 左側：LINE QR Code -->
+                <div class="glass-panel p-10 rounded-3xl text-center border border-zinc-800 hover:border-[#00e65b]/50 transition duration-500 flex flex-col justify-center items-center">
+                    <div class="w-20 h-20 bg-[#06C755]/15 rounded-2xl flex items-center justify-center mb-6 border border-[#06C755]/40">
+                        <i class="fa-brands fa-line text-5xl text-[#06C755]"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-3 text-white">Official LINE Consultation</h3>
+                    <p class="text-zinc-300 text-lg mb-8">Scan the QR code or click the button below to connect directly with our technical engineers.</p>
+                    
+                    <div class="bg-white p-5 rounded-2xl inline-block mb-8 shadow-[0_0_30px_rgba(0,230,91,0.2)] hover:scale-105 transition duration-300">
+                        <img src="../line-qr.png" alt="CHONEX LINE QR Code" class="w-48 h-48 object-contain">
+                    </div>
+                    
+                    <div class="w-full max-w-sm mx-auto">
+                        <a href="https://line.me/ti/p/eM1nKwsBaR" target="_blank" rel="noopener" class="inline-flex items-center justify-center w-full py-4 px-6 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xl transition shadow-lg">
+                            <i class="fa-brands fa-line mr-2.5 text-2xl"></i> Add LINE Friend
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 右側：公司基本資訊 -->
+                <div class="glass-panel p-10 rounded-3xl border border-zinc-800 flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold text-white mb-8 pb-4 border-b border-zinc-800">Corporate Contact Info</h4>
+                    <ul class="space-y-8 text-zinc-200 text-lg">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-building text-[#00e65b] mt-1.5 mr-5 text-2xl w-8 text-center"></i>
+                            <div>
+                                <strong class="text-white block text-2xl mb-1">CHONEX Power Systems Co., Ltd.</strong>
+                                <span class="text-lg text-zinc-400 font-brand block tracking-wider">崇瀚動力股份有限公司</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone text-[#00e65b] mr-5 text-2xl w-8 text-center"></i>
+                            <div>
+                                <span class="text-zinc-400 text-base block mb-1">Telephone (TEL)</span>
+                                <span class="text-xl font-bold text-white">Coming Soon (Updating)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-fax text-[#00e65b] mr-5 text-2xl w-8 text-center"></i>
+                            <div>
+                                <span class="text-zinc-400 text-base block mb-1">Fax Number (FAX)</span>
+                                <span class="text-xl font-semibold text-white">Coming Soon (Updating)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope text-[#00e65b] mr-5 text-2xl w-8 text-center"></i>
+                            <div>
+                                <span class="text-zinc-400 text-base block mb-1">Corporate Email</span>
+                                <a href="mailto:service@cnxpwr.com" class="text-xl font-bold text-white hover:text-[#00e65b] block transition">service@cnxpwr.com</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-[#00e65b] mt-1.5 mr-5 text-2xl w-8 text-center"></i>
+                            <div>
+                                <span class="text-zinc-400 text-base block mb-1">New Plant &amp; Office Address</span>
+                                <span class="text-xl font-semibold text-white">Coming Soon (Updating)</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="py-12 border-t border-zinc-800 bg-[#050607] text-center text-zinc-400 text-base relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3 text-lg">
+                <span class="font-brand font-black text-white tracking-widest">CHONEX</span>
+                <span class="text-zinc-600">|</span>
+                <span class="text-zinc-200 font-bold">CHONEX Power Systems</span>
+            </div>
+            <p class="text-sm md:text-base font-brand tracking-widest uppercase text-zinc-600">
+                Power • People • Progress — Driven By Engineering
+            </p>
+            <p class="text-base">&copy; 2026 CHONEX POWER SYSTEMS. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
