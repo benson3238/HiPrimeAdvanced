@@ -83,13 +83,13 @@
     <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
     <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
 
-    <!-- 導覽列 -->
+    <!-- 導覽列 (已加入 whitespace-nowrap 確保日文選單絕對不換行) -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-zinc-800 shadow-2xl">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="flex flex-col group">
-                <div class="flex items-center font-brand font-black text-3xl md:text-4xl tracking-wider text-white">
+            <a href="#" class="flex flex-col group shrink-0">
+                <div class="flex items-center font-brand font-black text-2xl md:text-3xl tracking-wider text-white">
                     <span>CH</span>
-                    <span class="chonex-o w-8 h-8 md:w-9 md:h-9 mx-1 group-hover:scale-105 transition duration-300">
+                    <span class="chonex-o w-7 h-7 md:w-8 md:h-8 mx-1 group-hover:scale-105 transition duration-300">
                         <span class="chonex-o-inner">
                             <span class="chonex-o-green"></span>
                             <span class="chonex-o-divider"></span>
@@ -97,29 +97,29 @@
                         </span>
                     </span>
                     <span>N</span>
-                    <span class="inline-flex flex-col justify-between h-6 md:h-7 w-5 md:w-6 mx-1 py-0.5">
+                    <span class="inline-flex flex-col justify-between h-5 md:h-6 w-4 md:w-5 mx-1 py-0.5">
                         <span class="h-1 bg-white w-full rounded-sm"></span>
                         <span class="h-1 bg-white w-full rounded-sm"></span>
                         <span class="h-1 bg-white w-full rounded-sm"></span>
                     </span>
                     <span class="relative inline-block bg-clip-text text-transparent bg-gradient-to-tr from-white via-white to-[#00e65b] drop-shadow-[0_0_8px_rgba(0,230,91,0.4)]">X</span>
                 </div>
-                <div class="flex items-center space-x-2 text-xs md:text-sm tracking-[0.2em] text-zinc-300 font-brand font-bold mt-1">
+                <div class="flex items-center space-x-2 text-[10px] md:text-xs tracking-[0.2em] text-zinc-300 font-brand font-bold mt-1">
                     <span>POWER SYSTEMS</span>
                     <span class="text-[#00e65b]">|</span>
                     <span class="text-white tracking-widest font-sans">崇瀚動力</span>
                 </div>
             </a>
 
-            <nav class="hidden lg:flex space-x-8 text-lg font-bold text-zinc-200">
-                <a href="#brand-concept" class="hover:text-[#00e65b] transition duration-300">ブランドコア</a>
-                <a href="#products" class="hover:text-[#00e65b] transition duration-300">システムラインナップ</a>
-                <a href="#applications" class="hover:text-[#00e65b] transition duration-300">研究開発と応用</a>
-                <a href="#news" class="hover:text-[#00e65b] transition duration-300">実績とニュース</a>
-                <a href="#contact" class="hover:text-[#00e65b] transition duration-300">お問い合わせ</a>
+            <nav class="hidden lg:flex space-x-5 xl:space-x-7 text-base xl:text-lg font-bold text-zinc-200">
+                <a href="#brand-concept" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">ブランドコア</a>
+                <a href="#products" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">システムラインナップ</a>
+                <a href="#applications" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">研究開発と応用</a>
+                <a href="#news" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">実績とニュース</a>
+                <a href="#contact" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">お問い合わせ</a>
             </nav>
 
-            <div class="flex items-center space-x-3 md:space-x-5">
+            <div class="flex items-center space-x-3 md:space-x-4 shrink-0">
                 <!-- 語系切換 (JP 版高亮) -->
                 <div class="flex items-center space-x-2 text-sm md:text-base font-bold font-brand tracking-wider">
                     <i class="fa-solid fa-globe text-zinc-500 mr-1 hidden sm:inline"></i>
@@ -130,7 +130,7 @@
                     <a href="/jp/" class="text-[#00e65b] hover:brightness-110 transition drop-shadow-[0_0_8px_rgba(0,230,91,0.3)]">JP</a>
                 </div>
 
-                <a href="#contact" class="px-5 py-2.5 md:px-6 md:py-3 text-base md:text-lg font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105">
+                <a href="#contact" class="px-4 py-2.5 md:px-5 md:py-3 text-sm md:text-base font-bold text-black bg-gradient-to-r from-[#00e65b] to-emerald-400 hover:brightness-110 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(0,230,91,0.3)] hover:scale-105 whitespace-nowrap">
                     お問い合わせ
                 </a>
             </div>
@@ -196,7 +196,7 @@
         </div>
     </section>
 
-    <!-- 關鍵數據與三大產業價值 (已修正標題強制不換行 white-space-nowrap) -->
+    <!-- 關鍵數據與三大產業價值 -->
     <section class="border-y border-zinc-800 bg-zinc-950/80 backdrop-blur-md relative z-10">
         <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
             <div class="pt-6 md:pt-0 md:px-6 first:pl-0">
