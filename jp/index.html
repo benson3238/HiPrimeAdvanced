@@ -83,7 +83,7 @@
     <div class="fixed top-[-10%] left-1/4 w-[550px] h-[550px] bg-[#00e65b]/15 rounded-full blur-[130px] pointer-events-none animate-glow z-0"></div>
     <div class="fixed bottom-[-10%] right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3.5s;"></div>
 
-    <!-- 導覽列 (已加入 whitespace-nowrap 確保日文選單絕對不換行) -->
+    <!-- 導覽列 (日文優化雙行對齊版) -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-zinc-800 shadow-2xl">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="#" class="flex flex-col group shrink-0">
@@ -111,12 +111,27 @@
                 </div>
             </a>
 
-            <nav class="hidden lg:flex space-x-5 xl:space-x-7 text-base xl:text-lg font-bold text-zinc-200">
-                <a href="#brand-concept" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">ブランドコア</a>
-                <a href="#products" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">システムラインナップ</a>
-                <a href="#applications" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">研究開発と応用</a>
-                <a href="#news" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">実績とニュース</a>
-                <a href="#contact" class="whitespace-nowrap hover:text-[#00e65b] transition duration-300">お問い合わせ</a>
+            <!-- 導覽選單 (日文優化雙行均衡排版) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm xl:text-base font-bold text-zinc-200">
+                <a href="#brand-concept" class="flex flex-col items-center hover:text-[#00e65b] transition duration-300 leading-tight">
+                    <span>ブランド</span><span>コア</span>
+                </a>
+                <span class="text-zinc-700">/</span>
+                <a href="#products" class="flex flex-col items-center hover:text-[#00e65b] transition duration-300 leading-tight">
+                    <span>システム</span><span>ラインナップ</span>
+                </a>
+                <span class="text-zinc-700">/</span>
+                <a href="#applications" class="flex flex-col items-center hover:text-[#00e65b] transition duration-300 leading-tight">
+                    <span>研究開発</span><span>と応用</span>
+                </a>
+                <span class="text-zinc-700">/</span>
+                <a href="#news" class="flex flex-col items-center hover:text-[#00e65b] transition duration-300 leading-tight">
+                    <span>実績と</span><span>ニュース</span>
+                </a>
+                <span class="text-zinc-700">/</span>
+                <a href="#contact" class="flex flex-col items-center hover:text-[#00e65b] transition duration-300 leading-tight">
+                    <span>お問い</span><span>合わせ</span>
+                </a>
             </nav>
 
             <div class="flex items-center space-x-3 md:space-x-4 shrink-0">
